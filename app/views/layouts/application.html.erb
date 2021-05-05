@@ -10,18 +10,55 @@
   </head>
 
   <body>
-    <header>
+    <header class="shadow-sm">
+      <nav class="navbar navbar-expand-lg navbar-light p-4">
+        <div class="container">
+          <a class="navbar-brand" href="/"><span>Word share!</span></a>
+        <div id="sp-menu">
       <% if user_signed_in? %>
-              <li>Let's word share !   <%= current_user.last_name + current_user.first_name %> さん！ </li>
-              <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+           <ul>
+              <li>Let's word share !   <%= current_user.last_name_kana + current_user.first_name_kana %> ！ </li>
+              <li>My page</li>
+              <li><%= link_to "Communicate", posts_path %></li>
+              <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+           </ul>
             <% elsif admin_signed_in? %>
+           <ul>
+              <li><%= link_to "会員一覧", admins_users_path %></li>
+              <li><%= link_to "投稿一覧", admins_posts_path %></li>
               <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
+           </ul>
             <% elsif current_page?(new_admin_session_path) %>
+           <ul>
               <li><%= link_to "ログイン", new_admin_session_path %></li>
+           </ul>
             <% else %>
-              <li><%= link_to "新規登録", new_user_registration_path, class: 'nav-link text-dark' %></li>
-              <li><%= link_to "ログイン", new_user_session_path %></li>
+             <ul>
+              <li><%= link_to "HOME", root_path %></li>
+              <li><%= link_to "JOIN", new_user_registration_path %></li>
+              <li><%= link_to "Log in", new_user_session_path %></li>
+             </ul>
             <% end %>
+        </div>
+        <div id="hm-icon">
+        <a class="menu-trigger" href="#">
+        <span></span>
+        <span></span>
+        <span></span>
+        </a>
+        </div>
+        <script>
+          $(function() {
+            $('.menu-trigger').on('click', function(event) {
+             $(this).toggleClass('active');
+               $('#sp-menu').fadeToggle();
+           event.preventDefault();
+            });
+          });
+        </script>
+
+       </div>
+      </nav>
     </header>
     <%= yield %>
   </body>
