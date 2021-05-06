@@ -18,7 +18,7 @@
       <% if user_signed_in? %>
            <ul>
               <li>Let's word share !   <%= current_user.last_name_kana + current_user.first_name_kana %> ！ </li>
-              <li>My page</li>
+              <li><%= link_to "My page", user_path(current_user) %></li>
               <li><%= link_to "Communicate", posts_path %></li>
               <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
            </ul>

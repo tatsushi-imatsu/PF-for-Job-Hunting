@@ -1,0 +1,12 @@
+  <%= form_with model: Post.new, local:true do |f| %>
+
+    <%= f.label :Word %>
+    <%= f.text_field :name, class: 'form-control post_name' %>
+
+
+    <%= f.label :explanation %>
+    <%= f.text_area :body, class: 'form-control post_body' %>
+
+
+    <%= f.submit "登録", class: 'btn btn-success' %>
+  <% end %>
