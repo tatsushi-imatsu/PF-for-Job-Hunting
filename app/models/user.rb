@@ -9,5 +9,7 @@ class User < ApplicationRecord
   validates :first_name, presence: true
   validates :first_name_kana, format: { with: /\A[a-zA-Z]+\z/}
 
+  has_many :posts
+  attachment :image
 
 end
