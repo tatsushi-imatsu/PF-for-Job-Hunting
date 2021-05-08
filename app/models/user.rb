@@ -10,6 +10,10 @@ class User < ApplicationRecord
   validates :first_name_kana, format: { with: /\A[a-zA-Z]+\z/}
 
   has_many :posts
-  attachment :image
+  attachment :image, destroy: false
+
+  def active_for_authentication?
+    super && (self.is_deleted == false)
+  end
 
 end

@@ -9,4 +9,20 @@
 	  <th>introduction</th>
 	  <th><%= user.introduction %></th>
   </tr>
+  <tr>
+    <th>status</th>
+    <th><% if user.is_deleted == false %>
+          <span style="color: green">有効</span>
+          <% else %>
+        　退会済み
+          <% end %></span>
+    </th>
+  </tr>
+  <tr>
+	  <th><% if @user == current_user %>
+    <%= link_to "プロフィール編集", edit_user_path(@user) %>
+    <br/><%= link_to "退会する", user_withdraw_path %>
+    <% end %>
+	  </th>
+  </tr>
 </table>

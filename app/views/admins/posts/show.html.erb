@@ -1,0 +1,33 @@
+<h2>post show</h2>
+
+<table>
+	  <th>name</th>
+	  <th><%= @post.user.last_name_kana %><%= @post.user.first_name_kana %></th>
+  </tr>
+  <tr>
+	  <th>introduction</th>
+	  <th><%= @post.user.introduction %></th>
+  </tr>
+</table>
+
+<table class='table table-hover table-inverse'>
+  <thead>
+    <tr>
+      <th></th>
+      <th>name</th>
+      <th>単語(word)</th>
+      <th colspan="3">意味(explanation)</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+  <tr>
+  	 <td><%= attachment_image_tag(@post.user, :image, :fill, 100, 100, fallback: "no_image.jpg") %></td>
+        <td><%= @post.user.last_name_kana %><%= @post.user.first_name_kana %></td>
+          <td><%= @post.name %></td>
+          <td><%= @post.body %></td>
+          <td><%= link_to 'Destroy', admins_post_path(@post), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger destroy_post_#{@post.id}" %>
+          </td>
+  </tr>
+  </tbody>
+</table>

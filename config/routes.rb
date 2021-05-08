@@ -5,8 +5,8 @@ Rails.application.routes.draw do
   registrations: 'admins/registrations'
 }
   namespace :admins do
-    resources :users, only: [:index]
-    resources :posts, only: [:index]
+    resources :users, only: [:index, :show, :update, :edit, :destroy]
+    resources :posts, only: [:index, :show, :destroy]
   end
 
   devise_for :users, controllers: {
@@ -18,7 +18,10 @@ Rails.application.routes.draw do
   get "/admins" => "admins/homes#top"
 
   resources :posts, only: [:index, :show, :create, :edit, :update, :destroy]
-  resources :users, only: [:show]
+  resources :users, only: [:show, :edit, :update]
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  patch "/users/:id/hide" => "users#hide", as: 'users_hide'
+  get "/users/:id/withdraw" => "users#withdraw", as: "user_withdraw"
+
+
 end
