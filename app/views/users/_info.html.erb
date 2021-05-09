@@ -9,6 +9,14 @@
 	  <th>introduction</th>
 	  <th><%= user.introduction %></th>
   </tr>
+ <tr>
+    <th>follows</th>
+    <th><%= link_to followings_user_path(user.id) do %><%= user.followings.count %><% end %></th>
+  </tr>
+  <tr>
+    <th>followers</th>
+    <th><%= link_to followers_user_path(user.id) do %><%=user.followers.count %><% end %></th>
+  </tr>
   <tr>
     <th>status</th>
     <th><% if user.is_deleted == false %>
@@ -19,10 +27,11 @@
     </th>
   </tr>
   <tr>
-	  <th><% if @user == current_user %>
-    <%= link_to "プロフィール編集", edit_user_path(@user) %>
-    <br/><%= link_to "退会する", user_withdraw_path %>
-    <% end %>
+	  <th>
+	    <% if user == current_user %>
+      <%= link_to "プロフィール編集", edit_user_path(user) %>
+      <%= link_to "退会する", user_withdraw_path %>
+      <% end %>
 	  </th>
   </tr>
 </table>

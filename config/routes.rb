@@ -17,8 +17,18 @@ Rails.application.routes.draw do
   root to: 'homes#top'
   get "/admins" => "admins/homes#top"
 
-  resources :posts, only: [:index, :show, :create, :edit, :update, :destroy]
+  resources :posts, only: [:index, :show, :create, :edit, :update, :destroy] do
+    resource :favorites, only: [:create, :destroy]
+    resources :post_comments, only: [:create, :destroy]
+  end
+
   resources :users, only: [:show, :edit, :update]
+  
+  resource :relationships, only: [:create, :destroy, :show]
+  resources :users do
+    get :followings, on: :member
+    get :followers, on: :member
+  end
 
   patch "/users/:id/hide" => "users#hide", as: 'users_hide'
   get "/users/:id/withdraw" => "users#withdraw", as: "user_withdraw"

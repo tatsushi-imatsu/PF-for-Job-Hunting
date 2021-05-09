@@ -1,5 +1,18 @@
 <h2>User page</h2>
 
 <%= render 'users/info', user: @user %>
-
+ <% if @user == current_user %>
+  <% else %>
+ <% if current_user.following?(@user) %>
+   <%= form_with model:@relationship, url:relationships_path, method: :delete, local: true do |f| %>
+   <%= f.hidden_field :followed_id, value: @user.id %>
+   <%= f.submit "フォロー外す" %>
+   <% end %>
+   <% else %>
+   <%= form_with model:@set_relationship, url:relationships_path, local: true do |f| %>
+   <%= f.hidden_field :followed_id, value: @user.id %>
+   <%= f.submit "フォローする" %>
+  <% end %>
+ <% end %>
+ <% end %>
 <%= render 'posts/index', posts: @posts%>

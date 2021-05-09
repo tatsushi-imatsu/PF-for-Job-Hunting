@@ -8,7 +8,8 @@
       <th>プロフィール画像</th>
       <th>紹介文</th>
       <th>ステータス</th>
-      <th></th>
+      <th>フォロー数</th>
+      <th>フォロワー数</th>
     </tr>
   </thead>
   <tbody>
@@ -23,6 +24,8 @@
           <span style="color: gray">退会済み</span>
           <% end %>
       </td>
+      <td><%= @user.followings.count %></td>
+      <td><%= @user.followers.count %></td>
     </tr>
   </tbody>
  </table>
