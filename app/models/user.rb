@@ -14,7 +14,7 @@ class User < ApplicationRecord
   attachment :image, destroy: false
   has_many :post_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
-  
+
   # foreign_key（FK）には、@user.xxxとした際に「@user.idがfollower_idなのかfollowed_idなのか」を指定します。
   has_many :relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
   has_many :passive_relationships, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
@@ -41,4 +41,23 @@ class User < ApplicationRecord
     super && (self.is_deleted == false)
   end
 
+  # 検索方法分岐
+  def self.looks(search, word)
+    if search == "perfect_match"
+      @user = User.where("last_name_kana LIKE ?" , "#{word}").or(User.where("first_name_kana LIKE ?" , "#{word}"))
+    elsif search == "forward_match"
+      @user = User.where("last_name_kana LIKE ?" , "#{word}").or(User.where("first_name_kana LIKE ?" , "#{word}%"))
+    elsif search == "backward_match"
+      @user = User.where("last_name_kana LIKE ?" , "#{word}").or(User.where("first_name_kana LIKE ?" , "%#{word}"))
+    elsif search == "partial_match"
+      @user = User.where("last_name_kana LIKE ?" , "#{word}").or(User.where("first_name_kana LIKE ?" , "%#{word}%"))
+    else
+      @user = User.all
+    end
+
+  end
+
 end
+
+
+

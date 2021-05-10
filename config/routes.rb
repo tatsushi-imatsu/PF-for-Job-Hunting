@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   namespace :admins do
     resources :users, only: [:index, :show, :update, :edit, :destroy]
     resources :posts, only: [:index, :show, :destroy]
+    get 'search' => 'searches#search'
   end
+  # get "/admins/search" => "searches#search"
 
   devise_for :users, controllers: {
   sessions:      'users/sessions',
@@ -23,7 +25,7 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: [:show, :edit, :update]
-  
+
   resource :relationships, only: [:create, :destroy, :show]
   resources :users do
     get :followings, on: :member
@@ -32,6 +34,8 @@ Rails.application.routes.draw do
 
   patch "/users/:id/hide" => "users#hide", as: 'users_hide'
   get "/users/:id/withdraw" => "users#withdraw", as: "user_withdraw"
+  get "/search" => "searches#search"
+
 
 
 end
