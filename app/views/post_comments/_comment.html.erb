@@ -1,0 +1,10 @@
+<% post.post_comments.each do |post_comment| %>
+   <p><%= attachment_image_tag(post.user, :image, :fill, 100, 100, fallback: "no_image.jpg") %></p>
+   <%= post_comment.user.last_name_kana %><%= post_comment.user.first_name_kana %>
+   <%= post_comment.created_at.strftime('%Y/%m/%d') %><%= post_comment.comment %>
+   <% if post_comment.user == current_user %>
+   <div id="delete-btn_<%= post.id %>">
+   <%= link_to "削除", post_post_comment_path(post_comment.post, post_comment), remote: true, method: :delete %>
+   </div>
+  <% end %>
+ <% end %>
