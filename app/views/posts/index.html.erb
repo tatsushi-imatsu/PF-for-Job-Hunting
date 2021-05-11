@@ -1,5 +1,20 @@
 <h2>Post Index</h2>
 
+<h2>総合投稿いいねランキング</h2>
+
+<% @all_ranks.each.with_index(1) do |post, i| %>
+  <p>No.<%= i %></p>
+  <p><%= link_to post_path(post) do %><%= post.name %><% end %></p>
+  <p>いいね数<%= post.favorites.count %></p>
+<% end %>
+
+<h2>My投稿いいねランキング</h2>
+<% @my_ranks.each.with_index(1) do |post, i| %>
+  <p>No.<%= i %></p>
+  <p><%= link_to post_path(post) do %><%= post.name %><% end %></p>
+  <p>いいね数<%= post.favorites.count %></p>
+<% end %>
+
 <%= form_with url: search_path, local: true, method: :get do |f| %>
       <%= f.text_field :word %>
       <%= f.select :range, options_for_select( ['Post'] ) %>

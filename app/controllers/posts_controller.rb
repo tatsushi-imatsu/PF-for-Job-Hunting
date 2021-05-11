@@ -3,6 +3,8 @@ class PostsController < ApplicationController
   def index
     @posts = Post.all
     @post = current_user
+    @all_ranks = Post.find(Favorite.group(:post_id).order('count(post_id) desc').limit(3).pluck(:post_id))
+    @my_ranks = @all_ranks.select{ |post| post.user_id == current_user.id }
   end
 
   def show

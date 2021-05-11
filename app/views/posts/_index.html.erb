@@ -3,7 +3,6 @@
     <tr>
       <th></th>
       <th>単語</th>
-      <th>意味</th>
       <th>コメント数</th>
       <th>いいね数</th>
     </tr>
@@ -13,7 +12,6 @@
       <tr>
         <td></td>
         <td><%= link_to post_path(post) do %><%= post.name %><% end %></td>
-        <td><%= post.body %></td>
         <td><%= post.post_comments.count %></td>
         <td><%= post.favorites.count %></td>
       </tr>
