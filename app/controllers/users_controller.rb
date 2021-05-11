@@ -14,6 +14,7 @@ class UsersController < ApplicationController
    #ログアウトさせる
    reset_session
    flash[:notice] = "ありがとうございました。またのご利用を心よりお待ちしております。"
+   NotificationMailer.send_confirm_to_user(@user).deliver
    redirect_to root_path
   end
 
