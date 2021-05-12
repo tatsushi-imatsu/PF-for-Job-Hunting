@@ -1,0 +1,44 @@
+<h2>post 詳細</h>
+<br>
+<%= render 'users/info', user: @post.user %>
+
+<table class='table table-hover table-inverse'>
+  <thead>
+    <tr>
+      <th></th>
+      <th>name</th>
+      <th>単語(word)</th>
+      <th>意味(explanation)</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+  <tr>
+  	 <td><%= attachment_image_tag(@post.user, :image, :fill, 100, 100, fallback: "no_image.jpg") %></td>
+        <td><%= link_to user_path(@post.user) do %><%= @post.user.last_name_kana %><%= @post.user.first_name_kana %><% end %></td>
+          <td><%= @post.name %></td>
+          <td><%= @post.body %></td>
+         <% if @post.user_id == current_user.id %>
+          <td><%= link_to 'Edit', edit_post_path(@post), class: "btn btn-sm btn-success edit_post_#{@post.id}" %></td>
+          <td><%= link_to 'Destroy', post_path(@post), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger destroy_post_#{@post.id}" %>
+          </td>
+           <% else %>
+          <td>
+            <div id="favorite-btn_<%= @post.id %>">
+              <%= render 'favorites/favorite', post: @post %>
+            </div>
+          </td>
+         <% end %>
+  </tr>
+  </tbody>
+</table>
+
+ <p>コメント件数：<%= @post.post_comments.count %></p>
+
+ <%= render 'post_comments/comment', post: @post %>
+
+ <%= form_with(model:[@post, @post_comment], remote: true) do |f| %>
+   <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %>
+   <%= f.submit "送信する" %>
+ <% end %>

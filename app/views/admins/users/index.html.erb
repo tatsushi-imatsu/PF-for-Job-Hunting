@@ -1,0 +1,42 @@
+<h2>Index Admin</h2>
+
+  <%= form_with url: admins_search_path, local: true, method: :get do |f| %>
+      <%= f.text_field :word %>
+      <%= f.select :range, options_for_select([['User'], ['Post']]) %>
+      <%= f.select :search, options_for_select([["完全一致","perfect_match"], ["前方一致","forward_match"],  ["後方一致","backword_match"], ["部分一致","partial_match"]]) %>
+      <%= f.submit "検索", class: "btn btn-primary" %>
+  <% end %>
+
+<br><table class="table table-hover table-inverse">
+  <thead>
+    <tr>
+      <th>会員ID</th>
+      <th>会員登録日時</th>
+      <th>名前</th>
+      <th>メールアドレス</th>
+      <th>ステータス</th>
+      <th>フォロー数</th>
+      <th>フォロワー数</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+    <tr>
+      <td><%= user.id %></td>
+      <td><%= user.created_at.strftime('%Y/%m/%d') %></td>
+      <td><%= link_to admins_user_path(user) do %><%= user.last_name+user.first_name %>(<%= user.last_name_kana+user.first_name_kana %>)<% end %>
+      </td>
+      <td><%= user.email %></td>
+      <td><% if user.is_deleted == false %>
+          <span style="color: green">有効</span>
+          <% else %>
+          <span style="color: gray">退会済み</span>
+          <% end %>
+      </td>
+      <td><%= user.followings.count %></td>
+      <td><%=user.followers.count %></td>
+    </tr>
+    <% end %>
+  </tbody>
+ </table>
+<% paginate @users %>
