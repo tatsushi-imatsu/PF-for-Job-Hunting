@@ -1,5 +1,5 @@
 <h1>退会確認</h1>
-     <p>退会してもよろしいでしょうか？</p>
+     <p>本当に退会してもよろしいでしょうか？</p>
      <% if user_signed_in? && @user.id == current_user.id %>
       <%= link_to "退会する", users_hide_path(current_user), method: :patch, class: "btn btn-outline-danger" %>
      <% end %>
