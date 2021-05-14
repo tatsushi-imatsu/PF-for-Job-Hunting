@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   sessions:      'admins/sessions',
   passwords:     'admins/passwords',
   registrations: 'admins/registrations'
-}
+  }
   namespace :admins do
     resources :users, only: [:index, :show, :update, :edit, :destroy]
     resources :posts, only: [:index, :show, :destroy]
@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   sessions:      'users/sessions',
   passwords:     'users/passwords',
   registrations: 'users/registrations'
-}
+  }
   root to: 'homes#top'
   get "/admins" => "admins/homes#top"
 
@@ -35,9 +35,13 @@ Rails.application.routes.draw do
   patch "/users/:id/hide" => "users#hide", as: 'users_hide'
   get "/users/:id/withdraw" => "users#withdraw", as: "user_withdraw"
   get "/search" => "searches#search"
-  
+
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
 
+  get   'inquiry'         => 'inquiry#index'     # 入力画面
+  post  'inquiry/confirm' => 'inquiry#confirm'   # 確認画面
+  post  'inquiry/thanks'  => 'inquiry#thanks'    # 送信完了画面
+  
 end
