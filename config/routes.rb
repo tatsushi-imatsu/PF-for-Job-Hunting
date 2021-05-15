@@ -35,6 +35,7 @@ Rails.application.routes.draw do
   patch "/users/:id/hide" => "users#hide", as: 'users_hide'
   get "/users/:id/withdraw" => "users#withdraw", as: "user_withdraw"
   get "/search" => "searches#search"
+  # get "/search" => "posts#search"
 
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
@@ -43,5 +44,7 @@ Rails.application.routes.draw do
   get   'inquiry'         => 'inquiry#index'     # 入力画面
   post  'inquiry/confirm' => 'inquiry#confirm'   # 確認画面
   post  'inquiry/thanks'  => 'inquiry#thanks'    # 送信完了画面
-  
+
+  resources :notifications, only: [:index ]
+
 end
