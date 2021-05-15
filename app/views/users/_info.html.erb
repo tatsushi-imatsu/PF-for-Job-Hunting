@@ -31,6 +31,10 @@
 	    <% if user == current_user %>
       <%= link_to "プロフィール編集", edit_user_path(user) %>
       <%= link_to "退会する", user_withdraw_path %>
+      <% if unchecked_notifications.any? %>
+        <i class="fa fa-circle" style="color: gold;"></i>
+      <% end %>
+      <%= link_to "NOTICE", notifications_path, class: "btn-default" %>
       <% end %>
 	  </th>
   </tr>
