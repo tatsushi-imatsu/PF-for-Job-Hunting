@@ -47,4 +47,7 @@ Rails.application.routes.draw do
 
   resources :notifications, only: [:index ]
 
+  get 'chat/:id' => 'chats#show', as: 'chat'
+  resources :chats, only: [:create]
+
 end
