@@ -10,11 +10,11 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
-        <td><%= attachment_image_tag(user, :image, :fill, 50, 50, fallback: "no_image.jpg") %></td>
+        <td><%= link_to user_path(user) do %><%= attachment_image_tag(user, :image, :fill, 50, 50, fallback: "no_image.jpg") %><% end %></td>
         <td><%= user.last_name_kana %><%= user.first_name_kana %></td>
         <td>フォロー数 <%= user.followings.count %></td>
         <td>フォロワー数 <%= user.followers.count %></td>
-         <td><%= link_to 'Show', user_path(user), class: "user_#{user.id}" %></td>
+         <td></td>
       </tr>
     <% end %>
   </tbody>
