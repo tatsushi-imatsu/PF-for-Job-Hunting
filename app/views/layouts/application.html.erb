@@ -11,16 +11,16 @@
 
   <body>
     <header class="shadow-sm">
-      <nav class="navbar navbar-expand-lg navbar-light p-4">
+      <nav class="navbar navbar-light p-4">
         <div class="container">
-          <a class="navbar-brand" href="/"><span>Word share!</span></a>
+          <a class="navbar-brand" href="/"><span style="font-size:30px">WORD SHARE</span></a>
         <div id="sp-menu">
       <% if user_signed_in? %>
            <ul>
-              <li>Let's word share !   <%= current_user.last_name_kana + current_user.first_name_kana %> ！ </li>
-              <li><%= link_to "My page", user_path(current_user) %></li>
-              <li><%= link_to "Communicate", posts_path %></li>
-              <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+              <li>Let's word share !  <strong><%= current_user.last_name_kana + current_user.first_name_kana %> </strong>！ </li>
+              <li><%= link_to "My page マイページ", user_path(current_user) %></li>
+              <li><%= link_to "Communicate つぶやき", posts_path %></li>
+              <li><%= link_to "Log out ログアウト", destroy_user_session_path, method: :delete %></li>
            </ul>
             <% elsif admin_signed_in? %>
            <ul>
@@ -34,9 +34,9 @@
            </ul>
             <% else %>
              <ul>
-              <li><%= link_to "HOME", root_path %></li>
-              <li><%= link_to "JOIN", new_user_registration_path %></li>
-              <li><%= link_to "Log in", new_user_session_path %></li>
+              <li><%= link_to "HOME トップページ", root_path %></li>
+              <li><%= link_to "JOIN 新規登録", new_user_registration_path %></li>
+              <li><%= link_to "LOG IN　ログイン", new_user_session_path %></li>
              </ul>
             <% end %>
         </div>
@@ -61,6 +61,8 @@
       </nav>
     </header>
     <%= yield %>
+    <footer>
     <%= render 'layouts/footer' %>
+    </footer>
   </body>
 </html>

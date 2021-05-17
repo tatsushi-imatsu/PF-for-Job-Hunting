@@ -16,11 +16,20 @@
  @import "bootstrap";
  @import 'font-awesome-sprockets';
  @import 'font-awesome';
+ @import url('https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap');
+
+ .body-color{
+   background-color: #000033;
+ }
+
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Kosugi Maru', sans-serif;
+  background-color: #000033;
+  color: white;
 }
 
  /* ---------------------------- */
@@ -32,6 +41,7 @@
   top: 20px;
   z-index: 10;
 }
+
 .menu-trigger,
 .menu-trigger span {
   display: inline-block;
@@ -48,7 +58,7 @@
   left: 0;
   width: 100%;
   height: 4px;
-  background-color: #000;
+  background-color: #fff;
   border-radius: 4px;
 }
 .menu-trigger span:nth-child(1) {
@@ -80,13 +90,14 @@
   position: fixed;
   top: 0;
   left: 0;
-  background: #000;
+  background: #fff;
   color: #fff;
   width: 100%;
   min-height: 100%;
   display: none;
   z-index: 9;
-  background: #75A9FF;
+  background: #000033;
+  font-size: 2em;
 }
 
 #sp-menu li {

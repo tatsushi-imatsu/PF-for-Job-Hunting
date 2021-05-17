@@ -1,22 +1,4 @@
-<h2>post show</h2>
-
-<table>
-	  <th>name</th>
-	  <th><%= @post.user.last_name_kana %><%= @post.user.first_name_kana %></th>
-  </tr>
-  <tr>
-	  <th>introduction</th>
-	  <th><%= @post.user.introduction %></th>
-  </tr>
-  <tr>
-    <td><% if @post.user.is_deleted == false %>
-          <span style="color: green">有効</span>
-          <% else %>
-          <span style="color: gray">退会済み</span>
-          <% end %>
-    </td>
-  </tr>
-</table>
+<p class="text-center"><span style="font-size:35px; background: none;">投稿詳細</span>
 
 <table class='table table-hover table-inverse'>
   <thead>
@@ -27,6 +9,7 @@
       <th>意味(explanation)</th>
       <th>コメント数</th>
       <th>いいね数</th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
