@@ -1,3 +1,26 @@
 // Place all the styles related to the homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.picture {
+  position: relative;/*相対配置*/
+  height: 100vh;
+  width: 100%;
+  background-image: image-url('top_picture.jpg');
+  background-size:cover;
+}
+
+.picture p {
+  position: absolute;/*絶対配置*/
+  font-weight: bold; /*太字に*/
+  font-size: 3em;/*サイズ3倍*/
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  margin:0;
+  padding:0;
+  background: none;
+  }
+

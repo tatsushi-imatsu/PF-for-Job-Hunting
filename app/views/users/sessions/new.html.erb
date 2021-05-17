@@ -1,6 +1,11 @@
-<h2>ログイン</h2>
 
-<h5>会員の方はこちらから</h5>
+ <div class='row'>
+   <div class="picture" style="width:100%">
+    <div class="mx-auto" style="width:70%">
+      <div class="box"><br><br>
+<div class="field"><span style="font-size:30px; text-center">ログイン</span></div><br>
+
+<div class="field"><span style="font-size:20px; text-center">会員の方はこちらから</span></div><br>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
@@ -8,21 +13,27 @@
     <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'email' %>
   </div>
 
-  <div class="field">
+  <br><div class="field">
     <%= f.label :パスワード %><br />
     <%= f.password_field :password, autocomplete: "current-password", placeholder: 'password' %>
   </div>
 
-  <% if devise_mapping.rememberable? %>
+  <br><% if devise_mapping.rememberable? %>
     <div class="field">
       <%= f.check_box :remember_me %>
       <%= f.label :パスワードを記憶する %>
     </div>
   <% end %>
 
-  <div class="actions">
-    <%= f.submit "ログイン", class: "btn btn-primary" %>
+  <br><div class="actions">
+    <%= f.submit "ログイン", class: "btn btn-outline-light btn-lg rounded-pill" %>
   </div>
 <% end %>
-
-<%= render "users/shared/links" %>
+<div class="actions">
+<br><%= render "users/shared/links" %>
+</div>
+<br><br>
+  </div>
+ </div>
+</div>
+</div>
