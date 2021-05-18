@@ -10,20 +10,6 @@
   background-size:cover;
 }
 
-.picture p {
-  position: absolute;/*絶対配置*/
-  font-weight: bold; /*太字に*/
-  font-size: 3em;/*サイズ3倍*/
-  top: 50%;
-  left: 50%;
-  -ms-transform: translate(-50%,-50%);
-  -webkit-transform: translate(-50%,-50%);
-  transform: translate(-50%,-50%);
-  margin:0;
-  padding:0;
-  background: none;
-  }
-
 .field{
     margin-bottom: 30px;
     text-align: center;
@@ -31,4 +17,8 @@
     left: 50%;
     margin:0;
     background: none;
+  }
+
+  .box{
+   margin-top: 10%;
   }
