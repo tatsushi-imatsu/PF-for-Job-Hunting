@@ -7,32 +7,30 @@
   </div>
 
   <% if @inquiry.errors.any? %>
-    <div class="alert alert-danger" role="alert">
-      <strong>入力内容にエラーがあります</strong>
+<div class="text-center">
       <ul>
         <% @inquiry.errors.each do |attr, msg| %>
           <li><%= msg %></li>
         <% end %>
       </ul>
-    </div>
+</div>
   <% end %>
   <div class="field">
       <%= f.label :名前 %><span class="text-danger">（必須）</span>
       <%= f.text_field :name, autofocus: true, size: 20 %>
       <%= f.label :メールアドレス %><span class="text-danger">（必須）</span>
-      <%= f.text_field :email, autofocus: true, size: 45 %>
+      <%= f.text_field :email, autofocus: true, size: 35 %>
   </div>
   <div class="field">
 <br><%= f.label :内容 %>
   </div>
   <div class="field">
-    <%= f.text_area :message, autofocus: true, size: "90x10"%>
+    <%= f.text_area :message, autofocus: true, size: "90x5" %>
   </div>
 <div class="actions">
   <br><%= f.submit '確認', class: 'btn btn-outline-light btn-lg rounded-pill' %>
 </div>
-<% end %>
-<br><br>
+<% end %><br>
    </div>
   </div>
  </div>

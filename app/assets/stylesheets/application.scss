@@ -111,3 +111,31 @@
   text-decoration: none;
   font-weight: bold;
 }
+
+.pagination {
+  margin: auto;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+}
+
+.pagination span{
+  background-color: #FFFFFF;
+  text-align: center;
+  width: 50px;
+  border: none;
+  color: #0000FF;
+  transition: .3s;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}
+.pagination span:hover{
+  transition: .3s;
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+.pagination span a:hover{
+  transition: .3s;
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}

@@ -3,7 +3,7 @@
     <div class="mx-auto" style="width:70%">
       <div class="box"><br><br>
 <%= form_for @inquiry, :url => inquiry_thanks_path do |f| %>
-  <div class="field"><span style="font-size:30px; text-center">お問い合わせ</span></div><br>
+  <div class="field"><span style="font-size:30px; text-center">お問い合わせ</span></div>
   </div>
    <div class="field"><br>
         <%= f.label :名前 %>
@@ -18,12 +18,12 @@
    <div class="field"><br>
         <%= f.label :お問い合わせ内容 %>
         <%= f.hidden_field :message %>
-        <span style="font-size: 5px;"><%= simple_format(@inquiry.message)  %></span>
+        <span style="font-size: 20px;"><%= simple_format(@inquiry.message)  %></span>
    </div>
-   <br><br><div class="actions">
+   <br><div class="actions">
   <%= f.submit '送信', :class => 'btn btn-outline-light btn-lg rounded-pill' %>
   </div>
-<% end %>
+<% end %><br>
    </div>
   </div>
  </div>

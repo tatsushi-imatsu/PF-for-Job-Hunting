@@ -9,6 +9,10 @@ class User < ApplicationRecord
   validates :first_name, presence: true
   validates :first_name_kana, format: { with: /\A[a-zA-Z]+\z/}
   validates :introduction,length: { maximum: 100}
+  validates :email,
+   format: { with: /\A[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*\z/},
+   presence: true
+  validates :encrypted_password, presence: true
 
   has_many :posts
   attachment :image, destroy: false
@@ -71,7 +75,7 @@ class User < ApplicationRecord
       notification.save if notification.valid?
     end
  end
- 
+
  has_many :user_rooms
  has_many :chats
  has_many :rooms, through: :user_rooms
