@@ -9,7 +9,7 @@
     <div class="product-box">
 <table>
       <tr>
-        <th><%= link_to user_path(user) do %><%= attachment_image_tag(user, :image, :fill, 100, fallback: "no_image.jpg") %><% end %></th>
+        <th><%= link_to user_path(user) do %><%= attachment_image_tag(user, :image, :fill, 50, 50, fallback: "no_image.jpg") %><% end %></th>
       </tr>
       <tr>
         <th><%= user.last_name_kana %><%= user.first_name_kana %></th>
