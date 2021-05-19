@@ -19,7 +19,7 @@
            <ul>
               <li>Let's word share !  <strong><%= current_user.last_name_kana + current_user.first_name_kana %> </strong>！ </li>
               <li><%= link_to "My page マイページ", user_path(current_user) %></li>
-              <li><%= link_to "Communicate つぶやき", posts_path %></li>
+              <li><%= link_to "Communicate by words 単語を共有しよう", posts_path %></li>
               <li><%= link_to "Log out ログアウト", destroy_user_session_path, method: :delete %></li>
            </ul>
             <% elsif admin_signed_in? %>
