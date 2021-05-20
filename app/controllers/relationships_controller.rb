@@ -5,6 +5,7 @@ class RelationshipsController < ApplicationController
   def create
      following = current_user.follow(@follower)
      following.save
+     @follower.create_notification_follow!(current_user)
      redirect_back(fallback_location: root_path)
   end
 

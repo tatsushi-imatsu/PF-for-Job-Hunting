@@ -1,37 +1,42 @@
+<div class='info'>
 <table>
-  <tr><%= link_to user_path(user) do %>
-  <%= attachment_image_tag(user, :image, :fill, 100, 100, fallback: "no_image.jpg") %><% end %></tr>
   <tr>
-	  <th>name</th>
-	  <th><%= user.last_name_kana %><%= user.first_name_kana %></th>
+	  <th>N&nbsp;A&nbsp;M&nbsp;E</th>
+	  <th>&nbsp;<%= user.last_name_kana %>&nbsp;<%= user.first_name_kana %></th>
   </tr>
   <tr>
-	  <th>introduction</th>
-	  <th><%= user.introduction %></th>
+	  <th>I&nbsp;N&nbsp;T&nbsp;R&nbsp;O&nbsp;D&nbsp;U&nbsp;C&nbsp;T&nbsp;I&nbsp;O&nbsp;N</th>
+	  <th>&nbsp;<%= user.introduction %></th>
   </tr>
  <tr>
-    <th>follows</th>
-    <th><%= link_to followings_user_path(user.id) do %><%= user.followings.count %><% end %></th>
+    <th>フォローしている人数 〜Your following〜<br><span style="color: yellow">※チャット可能 〜Chat available〜</span></th>
+    <th>&nbsp;<%= link_to followings_user_path(user.id) do %>&nbsp;&nbsp;<%= user.followings.count %>人<% end %></th>
   </tr>
   <tr>
-    <th>followers</th>
-    <th><%= link_to followers_user_path(user.id) do %><%=user.followers.count %><% end %></th>
+    <th>フォローされている人数 〜Your followers〜</th>
+    <th>&nbsp;<%= link_to followers_user_path(user.id) do %>&nbsp;&nbsp;<%=user.followers.count %>人<% end %></th>
   </tr>
   <tr>
-    <th>status</th>
+    <th>会員状態 〜Current status〜</th>
     <th><% if user.is_deleted == false %>
-          <span style="color: green">有効</span>
+          <span style="color: green">&nbsp;&nbsp;利用中 〜valid〜</span>
           <% else %>
-        　退会済み
+        　&nbsp;&nbsp;退会 〜invalid〜
           <% end %></span>
     </th>
   </tr>
   <tr>
 	  <th>
-	    <% if user == current_user %>
-      <%= link_to "プロフィール編集", edit_user_path(user) %>
-      <%= link_to "退会する", user_withdraw_path %>
-      <% end %>
+
 	  </th>
   </tr>
-</table>
+</table><br>
+<% if user == current_user %>
+      <%= link_to "プロフィール編集 Edit profile", edit_user_path(user), class: 'btn btn-outline-light rounded-pill' %>
+      <%= link_to "退会する Quit", user_withdraw_path, class: "btn btn-outline-danger" %>
+      <% if unchecked_notifications.any? %>
+        <i class="fa fa-circle" style="color: gold;"></i>
+      <% end %>
+      <%= link_to "通知 NOTICE", notifications_path, class: 'btn btn-outline-light rounded-pill' %>
+      <% end %>
+</div>

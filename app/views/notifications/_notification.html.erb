@@ -1,0 +1,10 @@
+<% visiter = notification.visiter %>
+<% post = notification.post %>
+
+<div class="field">
+  <ul><%= notification_form(notification) %>
+  <span class="moderate-font"><%= " (#{time_ago_in_words(notification.created_at)} 前)" %></span><br></ul>
+  <% if !@post_comment.nil? %>
+    <p class="moderate-font text-center" style="color: #C0C0C0;"><%= @post_comment %></p>
+  <% end %>
+</div>

@@ -1,0 +1,29 @@
+ <div class="row">
+   <div class="mx-auto" style="width:80%">
+      <h2 class="text-center">チャットで仲良くなりましよう！<br>〜Let's chat and get along with your partner!〜</h2>
+        <div id="sentence">
+            <p> <% @chats.each do |chat| %>
+                <% if chat.user_id == current_user.id %></p>
+                 <div class="mycomment"><p><%= chat.sentence %></p></div>
+                 <% else %>
+                 <div class="fukidasi">
+                 <div class="chatting">
+                   <div class="says">
+                 <p><%= chat.sentence %></p>
+                   </div>
+                </div>
+                </div>
+                 <% end %>
+              <% end %>
+               </div>
+           <div class="send-form">
+            <%= form_with model: @chat do |f| %>
+              <%= f.text_area :sentence, size: "40x5" %>
+              <%= f.hidden_field :room_id %><br>
+              <%= f.submit "送信", class: 'btn btn-success btn-lg rounded-pill' %>
+            <% end %>
+             <h4><%= link_to 'Mypageに戻る', user_path(current_user) %> or
+  	    <%= link_to '投稿一覧へ 〜Communicate by words〜', posts_path %></h4>
+    </div>
+  </div>
+</div>

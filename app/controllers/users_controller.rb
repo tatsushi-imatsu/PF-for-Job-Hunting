@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @posts = @user.posts
+    @posts = @user.posts.page(params[:page]).per(5)
     @relationship = current_user.relationships.find_by(followed_id: @user.id)
     @set_relationship = current_user.relationships.new
   end
@@ -38,12 +38,12 @@ class UsersController < ApplicationController
 
   def followings
     @user = User.find(params[:id])
-    @users = @user.followings.all
+    @users = @user.followings.all.page(params[:page]).per(8)
   end
 
   def followers
     @user = User.find(params[:id])
-    @users = @user.followers.all
+    @users = @user.followers.all.page(params[:page]).per(14)
   end
 
   def ensure_correct_user

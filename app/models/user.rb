@@ -9,6 +9,10 @@ class User < ApplicationRecord
   validates :first_name, presence: true
   validates :first_name_kana, format: { with: /\A[a-zA-Z]+\z/}
   validates :introduction,length: { maximum: 100}
+  validates :email,
+   format: { with: /\A[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*\z/},
+   presence: true
+  validates :encrypted_password, presence: true
 
   has_many :posts
   attachment :image, destroy: false
@@ -56,6 +60,25 @@ class User < ApplicationRecord
     end
 
   end
+
+  has_many :active_notifications, class_name: 'Notification', foreign_key: 'visiter_id', dependent: :destroy
+  has_many :passive_notifications, class_name: 'Notification', foreign_key: 'visited_id', dependent: :destroy
+
+  #フォロー時の通知
+ def create_notification_follow!(current_user)
+    temp = Notification.where(["visiter_id = ? and visited_id = ? and action = ? ",current_user.id, id, 'follow'])
+    if temp.blank?
+      notification = current_user.active_notifications.new(
+        visited_id: id,
+        action: 'follow'
+      )
+      notification.save if notification.valid?
+    end
+ end
+
+ has_many :user_rooms
+ has_many :chats
+ has_many :rooms, through: :user_rooms
 
 end
 

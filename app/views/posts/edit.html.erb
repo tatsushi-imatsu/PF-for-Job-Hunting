@@ -1,9 +1,23 @@
-<h1>Editing</h1>
+<div class='row'>
+   <div class="picture" style="width:100%">
+    <div class="mx-auto" style="width:70%">
+      <div class="box"><br>
+<div class="field"><span style="font-size:20px; text-center">投稿単語　編集 〜Editing your word〜</span></div>
     	<%= form_with model:@post, local: true do |f| %>
-        <h4>単語</h4>
-        <%= f.text_field :name %>
-        <h4>意味</h4>
-        <%= f.text_area :body %>
-      <br><%= f.submit 'Update!' %>
-  	    <h4><%= link_to 'Show', post_path(@post), class: "book_#{@post.id}" %> | <%= link_to 'Back', posts_path, class: "back" %></h4>
+        <div class="field">
+        <%= f.label :単語 %><br>
+        <%= f.text_field :name, autofocus: true, size: "30" %><br>
+        </div>
+        <div class="field">
+        <br><%= f.label :説明 %><br>
+        <%= f.text_area :body, autofocus: true, size: "50x5" %><br>
+      <br><%= f.submit 'Update!', class: 'btn btn-outline-light btn-lg rounded-pill' %>
+        </div>
+         <div class="field"><br>
+  	    <h4><%= link_to '投稿した単語に戻る 〜word details〜', post_path(@post), class: "book_#{@post.id}" %> |
+  	    <%= link_to '投稿一覧へ 〜all words〜', posts_path, class: "back" %></h4></div>
   		<% end %>
+  		<br><br></div>
+  </div>
+ </div>
+</div>

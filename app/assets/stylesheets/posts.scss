@@ -1,3 +1,64 @@
 // Place all the styles related to the Posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "bootstrap";
+
+  .box{
+   margin-top: 5%;
+  }
+
+  .field{
+    margin-bottom: 30px;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    margin:0;
+  }
+
+  .actions{
+    text-align: center;
+  }
+
+  .postbox{
+margin-top: 3%;
+border:2px dotted  white;
+}
+
+  .product-box {
+	  float: left;
+  	margin-right: 22px;
+	  margin-top: 20px;
+	  margin-left: 15px;
+  	padding: 20px;
+	  border:2px dotted  white;
+}
+
+.container-post {
+  display: flex;
+  justify-content: center; align-items: center;
+}
+
+.container-text{
+  flex-flow: column; /* 縦に並べる */
+  text-align: center;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.space{
+ text-align: center;
+}
+
+.comment{
+  padding: 5px 5px;
+  max-width: 70%;
+  margin: 5px auto;
+  text-align: center;
+  font-size: 18px;
+}
+
+.comment-post{
+  text-align: center;
+  margin-bottom: 3%;
+}
