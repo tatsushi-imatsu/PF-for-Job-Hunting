@@ -4,11 +4,11 @@
 
 @import "bootstrap";
 
-  .box{
+.box{
    margin-top: 15%;
   }
 
-  .field{
+.field{
     margin-bottom: 30px;
     text-align: center;
     top: 50%;
@@ -16,7 +16,7 @@
     margin:0;
   }
 
-  .actions{
+.actions{
     text-align: center;
   }
 
@@ -25,6 +25,7 @@
 	margin-right: 22px;
 	margin-top: 20px;
 	padding: 20px;
+	border:2px dotted  white;
 }
 
 .postbox{
@@ -43,3 +44,4 @@ margin-top: 3%;
 .profile{
   margin-left: 10%;
 }
+

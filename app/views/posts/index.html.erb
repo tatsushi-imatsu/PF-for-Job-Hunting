@@ -1,27 +1,38 @@
-<h2>Post Index</h2>
-
-<h2>総合投稿いいねランキング</h2>
-
+<div class='row'>
+   <div class="picture" style="width:100%">
+    <div class="mx-auto" style="width:80%">
+      <div class="postbox"><br>
+      <div class="container-post">
+<div class="container-text">
+<h2>総合ランキング</h2>
 <% @all_ranks.each.with_index(1) do |post, i| %>
-  <p>No.<%= i %></p>
-  <p><%= link_to post_path(post) do %><%= post.name %><% end %></p>
-  <p>いいね数<%= post.favorites.count %></p>
+  <p>No.<%= i %>&nbsp;<%= link_to post_path(post) do %><%= post.name %><% end %></p>
+  <p>いいね数&nbsp;<%= post.favorites.count %></p>
 <% end %>
-
-<h2>My投稿いいねランキング</h2>
+</div>
+<div class="container-text">
+<%= render 'form', post: @post %>
+</div>
+<div class="container-text">
+<h2>マイランキング</h2>
 <% @my_ranks.each.with_index(1) do |post, i| %>
-  <p>No.<%= i %></p>
-  <p><%= link_to post_path(post) do %><%= post.name %><% end %></p>
-  <p>いいね数<%= post.favorites.count %></p>
+  <p>No.<%= i %>&nbsp;<%= link_to post_path(post) do %><%= post.name %><% end %></p>
+  <p>いいね数&nbsp;<%= post.favorites.count %></p>
 <% end %>
-
+</div>
+</div>
+ <div class="field">
 <%= form_with url: search_path, local: true, method: :get do |f| %>
       <%= f.text_field :word %>
       <%= f.select :range, options_for_select( ['Word'] ) %>
       <%= f.select :search, options_for_select([["完全一致","perfect_match"], ["前方一致","forward_match"],  ["後方一致","backword_match"], ["部分一致","partial_match"]]) %>
       <%= f.submit "検索", class: "btn btn-primary" %>
 <% end %>
-
-<%= render 'form', post: @post %>
-
+</div>
+<div class="space">
 <%= render 'index', posts: @posts%>
+</div>
+</div>
+ </div>
+</div>
+</div>

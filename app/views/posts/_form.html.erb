@@ -1,10 +1,10 @@
   <%= form_with model: Post.new, local:true do |f| %>
 
-    <%= f.label :Word %>
+    <%= f.label :言葉 %>
     <%= f.text_field :name, class: 'form-control post_name' %>
 
 
-    <%= f.label :explanation %>
+    <%= f.label :意味と説明 %>
     <%= f.text_area :body, class: 'form-control post_body' %>
 
 
