@@ -19,3 +19,26 @@
   .actions{
     text-align: center;
   }
+
+  /* スマートフォンサイズ（425px）以下の際に適用される設定 */
+@media screen and (max-width:425px) {
+  .box{
+   margin-top: 15%;
+  }
+}
+
+@media screen and (max-width:425px) {
+  .field{
+    margin-bottom: 0px;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    margin: 0;
+  }
+}
+
+@media screen and (max-width:425px) {
+   .actions{
+    text-align: center;
+  }
+}
