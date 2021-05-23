@@ -1,10 +1,12 @@
+<script src="https://cdn.jsdelivr.net/gh/mntn-dev/t.js/t.min.js"></script>
 <div class='row'>
-   <div class="picture" style="width:100%">
+   
     <div class="mx-auto" style="width:80%">
       <div class="postbox"><br>
+      <div class="field"><p id="hoge"><span style="font-size:25px;">言葉をシェアして繋がりましょう！<br>〜Let's word share and make your community!〜</span></p></div>
       <div class="container-post">
 <div class="container-text">
-<h2>総合ランキング</h2>
+<p><span style="font-size:25px;">総合ランキング</span></p>
 <% @all_ranks.each.with_index(1) do |post, i| %>
   <p>No.<%= i %>&nbsp;<%= link_to post_path(post) do %><%= post.name %><% end %></p>
   <p>いいね数&nbsp;<%= post.favorites.count %></p>
@@ -14,7 +16,7 @@
 <%= render 'form', post: @post %>
 </div>
 <div class="container-text">
-<h2>マイランキング</h2>
+<p><span style="font-size:25px;">マイランキング</span></p>
 <% @my_ranks.each.with_index(1) do |post, i| %>
   <p>No.<%= i %>&nbsp;<%= link_to post_path(post) do %><%= post.name %><% end %></p>
   <p>いいね数&nbsp;<%= post.favorites.count %></p>
@@ -33,6 +35,5 @@
 <%= render 'index', posts: @posts%>
 </div>
 </div>
- </div>
 </div>
 </div>

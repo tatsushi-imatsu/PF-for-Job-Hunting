@@ -1,0 +1,43 @@
+<h2>編集 <%= resource_name.to_s.humanize %></h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= render "users/shared/error_messages", resource: resource %>
+
+  <div class="field">
+    <%= f.label :メールアドレス %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'email' %>
+  </div>
+
+  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :パスワード %> <i>(leave blank if you don't want to change it)</i><br />
+    <%= f.password_field :password, autocomplete: "new-password", placeholder: 'password' %>
+    <% if @minimum_password_length %>
+      <br />
+      <em><%= @minimum_password_length %> characters minimum</em>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :パスワード確認 %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: 'password confirmation' %>
+  </div>
+
+  <div class="field">
+    <%= f.label :現在のパスワード %> <i>(we need your current password to confirm your changes)</i><br />
+    <%= f.password_field :current_password, autocomplete: "current-password", placeholder: 'current password' %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "更新", class: "btn btn-primary" %>
+  </div>
+<% end %>
+
+<h3>アカウントのキャンセル</h3>
+
+<p>問題ございませんでしょうか？ <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "本当によろしいですか？" }, method: :delete %></p>
+
+<%= link_to "Back", :back %>

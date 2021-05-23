@@ -1,18 +1,16 @@
 <div class='row'>
    <div class="picture" style="width:100%">
     <div class="mx-auto" style="width:70%">
-      <div class="box"><br><br>
-<%= form_for @inquiry, :url => inquiry_confirm_path do |f| %>
-  <div class="field"><span style="font-size:30px; text-center">お問い合わせ</span></div><br>
+      <div class="box"><br>
+<%= form_with model:@inquiry, :url => inquiry_confirm_path, local: true do |f| %>
+  <div class="field"><span style="font-size:30px; text-center">お問い合わせ</span></div>
   </div>
 
   <% if @inquiry.errors.any? %>
 <div class="text-center">
-      <ul>
         <% @inquiry.errors.each do |attr, msg| %>
-          <li><%= msg %></li>
+          ・空欄<%= msg %>
         <% end %>
-      </ul>
 </div>
   <% end %>
   <div class="field">
@@ -28,7 +26,7 @@
     <%= f.text_area :message, autofocus: true, size: "30x5" %>
   </div>
 <div class="actions">
-  <br><%= f.submit '確認', class: 'btn btn-outline-light btn-lg rounded-pill' %>
+  <br><%= f.submit '確認', class: 'btn btn-outline-light rounded-pill' %>
 </div>
 <% end %><br>
    </div>

@@ -42,3 +42,10 @@
     text-align: center;
   }
 }
+
+@media screen and (max-width:425px) {
+   .text-center{
+    text-align: center;
+    font-size: 10px;
+  }
+}
