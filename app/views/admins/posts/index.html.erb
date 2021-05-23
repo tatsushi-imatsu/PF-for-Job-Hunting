@@ -1,38 +1,43 @@
 <div class='row'>
-<div class="mx-auto" style="width:70%">
-<p class="text-center"><span style="font-size:35px; background: none;">ユーザ投稿一覧</span></p>
- <div class="field"><br>
-  <%= form_with url: admins_search_path, local: true, method: :get do |f| %>
+ <div class="mx-auto" style="width:70%">
+  <p class="text-center">
+    <span style="font-size:30px;">
+      ユーザ投稿一覧
+    </span>
+  </p>
+   <div class="field"><br>
+    <%= form_with url: admins_search_path, local: true, method: :get do |f| %>
       <%= f.text_field :word %>
       <%= f.select :range, options_for_select([['User'], ['Post']]) %>
       <%= f.select :search, options_for_select([["完全一致","perfect_match"], ["前方一致","forward_match"],  ["後方一致","backword_match"], ["部分一致","partial_match"]]) %>
       <%= f.submit "検索", class: "btn btn-primary" %>
-  <% end %>
- </div>
+    <% end %>
+   </div>
+  <%= paginate @posts %><br>
+   <table class="table table-hover table-inverse">
+    <thead>
+     <tr>
+      <th>投稿ID</th>
 
-<br><table class="table table-hover table-inverse">
-  <thead>
-    <tr>
-      <th>ID</th>
       <th>投稿日時</th>
       <th>単語</th>
       <th>説明</th>
       <th>コメント数</th>
       <th>いいね数</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @posts.each do |post| %>
-    <tr>
+     </tr>
+    </thead>
+    <tbody>
+     <% @posts.each do |post| %>
+     <tr>
       <td><%= post.id %></td>
       <td><%= post.created_at.strftime('%Y/%m/%d') %></td>
       <td><%= link_to admins_post_path(post) do %><%= post.name %><% end %></td>
       <td><%= post.body %></td>
       <td><%= post.post_comments.count %></td>
       <td><%= post.favorites.count %></td>
-    </tr>
-    <% end %>
-  </tbody>
- </table>
+     </tr>
+     <% end %>
+     </tbody>
+   </table>
  </div>
 </div>
