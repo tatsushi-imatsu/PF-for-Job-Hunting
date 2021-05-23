@@ -48,6 +48,8 @@ https://docs.google.com/spreadsheets/d/1p1wmzeqmyB4RDidsBhm17kwPRrbDvbp1elCcvzbb
 
 ## 使用素材
 
+https://ja.cooltext.com
+
 friendship-2366955_1920.jpg
 
 kristopher-roller-zepnJQycr4U-unsplash.jpg
