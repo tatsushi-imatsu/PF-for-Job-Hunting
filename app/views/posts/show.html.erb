@@ -1,8 +1,7 @@
-<script src="https://cdn.jsdelivr.net/gh/mntn-dev/t.js/t.min.js"></script>
 <div class='row'>
   <div class="mx-auto" style="width:80%">
    <div class="postbox">
-     <div class="field"><p id="hoge"><span style="font-size:25px;"><br>いいねやコメントをしてコミュニケーションしましょう！<br>〜Push button and leave comments!〜</span></p>
+     <div class="field"><span style="font-size:25px;"><br>いいねやコメントをしてコミュニケーションしましょう！<br>〜Push button and leave comments!〜</span>
       <p><span style="font-size:25px;">単語&nbsp;(word)<br><br><%= @post.name %></span></p>
       <% if @post.user_id == current_user.id %>
       <%= link_to '編集 Edit', edit_post_path(@post), class: "btn btn-outline-light rounded-pill" %>&nbsp;

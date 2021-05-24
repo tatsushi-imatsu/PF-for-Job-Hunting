@@ -14,10 +14,10 @@ class User < ApplicationRecord
    presence: true
   validates :encrypted_password, presence: true
 
-  has_many :posts
   attachment :image, destroy: false
   has_many :post_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
+  has_many :posts, through: :favorites
 
   # foreign_key（FK）には、@user.xxxとした際に「@user.idがfollower_idなのかfollowed_idなのか」を指定します。
   has_many :relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy

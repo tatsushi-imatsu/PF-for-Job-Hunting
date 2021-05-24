@@ -2,16 +2,15 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-// /************************************
-// ** チャットの吹き出し
-// ************************************/
+// // /************************************
+// // ** チャットの吹き出し
+// // ************************************/
 #sentence{
   padding: 20px 10px;
   max-width: 450px;
   margin: 15px auto;
-  text-align: right;
+  text-align: center;
   font-size: 14px;
-  background: #7da4cd;
 }
 .fukidasi {
   width: 100%;
@@ -33,15 +32,7 @@
   background:  #30e852;
   text-align: right;
 }
-.says:after {
-  content: "";
-  position: absolute;
-  top: 3px;
-  border: 8px solid transparent;
-  border-right: 18px solid #30e852;
-  -webkit-transform: rotate(30deg);
-  transform: rotate(20deg);
-}
+
 .says p {
   margin: 0;
   padding: 0;
@@ -62,10 +53,7 @@
   background: #30e852;
   font-size: 15px;
 }
-.mycomment p:after {
-  content: "";
-  position: absolute;
-}
+
 /************************************
 ** 送信フォーム
 ************************************/
@@ -79,9 +67,8 @@
   padding: 20px 10px;
   max-width: 450px;
   margin: 15px auto;
-  text-align: right;
+  text-align: center;
   font-size: 14px;
-  background: #7da4cd;
 }
 }
 
@@ -115,18 +102,6 @@
 }
 
 @media screen and (max-width:425px) {
- .says:after {
-  content: "";
-  position: absolute;
-  top: 3px;
-  border: 8px solid transparent;
-  border-right: 18px solid #30e852;
-  -webkit-transform: rotate(30deg);
-  transform: rotate(20deg);
-}
-}
-
-@media screen and (max-width:425px) {
  .says p {
   margin: 0;
   padding: 0;
@@ -155,12 +130,6 @@
 }
 }
 
-@media screen and (max-width:425px) {
- .mycomment p:after {
-  content: "";
-  position: absolute;
-}
-}
 
 @media screen and (max-width:425px) {
  .send-form{
