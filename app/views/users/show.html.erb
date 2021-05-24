@@ -8,22 +8,14 @@
         <%= render 'users/info', user: @user %>
         </div>
       <div class="actions">
-<% if @user == current_user %>
-  <% else %>
- <% if current_user.following?(@user) %>
-   <%= form_with model:@relationship, url:relationships_path, method: :delete, local: true do |f| %>
-   <%= f.hidden_field :followed_id, value: @user.id %>
-   <%= f.submit "フォロー外す", class: 'btn btn-outline-light btn-lg rounded-pill' %>
-   <% end %>
-   <% else %>
-   <%= form_with model:@set_relationship, url:relationships_path, local: true do |f| %>
-   <%= f.hidden_field :followed_id, value: @user.id %>
-   <%= f.submit "フォローする", class: 'btn btn-outline-light btn-lg rounded-pill' %>
-  <% end %>
- <% end %>
- <% end %>
-<br></div>
+          <%= render "follow_form" %><br>
+       <p>◆&nbsp;<%= @user.last_name_kana %>&nbsp;<%= @user.first_name_kana %>&nbsp;がいいねした&nbsp;Words&nbsp;〜&nbsp;my favorite words〜</p>
+       </div>
 <%= render 'posts/index', posts: @posts%>
+
 </div>
+
  </div>
+
 </div>
+

@@ -1,8 +1,8 @@
- <div class="row">
+<div class="row">
    <div class="mx-auto" style="width:80%">
       <h2 class="text-center">チャットで仲良くなりましよう！<br>〜Let's chat and get along with your partner!〜</h2>
-      <h2 id="room" data-room="<%= @room.id %>" data-user="<%= current_user.id %>"><%= @user.first_name_kana %> さんとのチャット</h2>
-        <div id="sentence">
+       <div id="sentence">
+           <h2 id="room" data-room="<%= @room.id %>" data-user="<%= current_user.id %>"><%= @user.first_name_kana %> さんとのチャット</h2>
             <p> <% @chats.each do |chat| %>
                 <% if chat.user_id == current_user.id %></p>
                  <div class="mycomment"><p><%= chat.sentence %></p></div>

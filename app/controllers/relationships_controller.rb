@@ -1,5 +1,5 @@
 class RelationshipsController < ApplicationController
-  
+
   before_action :set_follower
 
   def create
@@ -20,7 +20,7 @@ class RelationshipsController < ApplicationController
 
   private
   def set_follower
-    @follower = User.find(params[:relationship][:followed_id])
+    @follower = User.find(params[:user][:followed_id])
   end
-  
+
 end

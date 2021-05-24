@@ -35,7 +35,6 @@ Rails.application.routes.draw do
   patch "/users/:id/hide" => "users#hide", as: 'users_hide'
   get "/users/:id/withdraw" => "users#withdraw", as: "user_withdraw"
   get "/search" => "searches#search"
-  # get "/search" => "posts#search"
 
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"

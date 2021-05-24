@@ -15,7 +15,7 @@
         <th><div class="field"><%= user.last_name_kana %><%= user.first_name_kana %></div></th>
       </tr>
       <tr>
-         <th><%= link_to 'CHAT', chat_path(@user.id), class: 'btn btn-outline-warning rounded-pill' %></th>
+         <th><%= link_to 'CHAT', chat_path(user.id), class: 'btn btn-outline-warning rounded-pill' %></th>
       </tr>
 </table>
 </div>
