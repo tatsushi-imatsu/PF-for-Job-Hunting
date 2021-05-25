@@ -1,5 +1,4 @@
 class Admins::UsersController < ApplicationController
-
   before_action :authenticate_admin!
 
   def index
@@ -19,10 +18,10 @@ class Admins::UsersController < ApplicationController
     @user = User.find(params[:id])
     @user.update(user_params)
     if @user.save
-    redirect_to admins_user_path(@user)
+      redirect_to admins_user_path(@user)
     else
-    @user = User.find(params[:id])
-    render :edit
+      @user = User.find(params[:id])
+      render :edit
     end
   end
 
@@ -35,5 +34,4 @@ class Admins::UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:is_deleted)
   end
-
 end

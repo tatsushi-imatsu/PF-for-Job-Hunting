@@ -1,26 +1,21 @@
 <h1>検索結果</h1>
-
-<%= render 'users/info', user: @user %>
-
-
-<% if @user == current_user %>
-  <% else %>
- <% if current_user.following?(@user) %>
-   <%= form_with model:@relationship, url:relationships_path, method: :delete, local: true do |f| %>
-   <%= f.hidden_field :followed_id, value: @user.id %>
-   <%= f.submit "フォロー外す" %>
-   <% end %>
-   <% else %>
-   <%= form_with model:@set_relationship, url:relationships_path, local: true do |f| %>
-   <%= f.hidden_field :followed_id, value: @user.id %>
-   <%= f.submit "フォローする" %>
+  <%= render 'users/info', user: @user %>
+    <% if @user == current_user %>
+      <% else %>
+        <% if current_user.following?(@user) %>
+          <%= form_with model:@relationship, url:relationships_path, method: :delete, local: true do |f| %>
+          <%= f.hidden_field :followed_id, value: @user.id %>
+          <%= f.submit "フォロー外す" %>
+        <% end %>
+        <% else %>
+        <%= form_with model:@set_relationship, url:relationships_path, local: true do |f| %>
+        <%= f.hidden_field :followed_id, value: @user.id %>
+        <%= f.submit "フォローする" %>
+        <% end %>
+      <% end %>
+    <% end %>
+  <%= form_with model: @post, url: search_posts_path, local: true, method: :get do |f| %>
+    <%= f.select :keyword, options_for_select([["投稿が新しい順","new"], ["投稿が古い順","old"],  ["いいね済みで多い順","favorites"], ["いいね済みで少ない順","unfavorites"]]) %>
+    <%= f.submit "検索", class: "btn btn-primary" %>
   <% end %>
- <% end %>
- <% end %>
-
-<%= form_with model: @post, url: search_posts_path, local: true, method: :get do |f| %>
-  <%= f.select :keyword, options_for_select([["投稿が新しい順","new"], ["投稿が古い順","old"],  ["いいね済みで多い順","favorites"], ["いいね済みで少ない順","unfavorites"]]) %>
-  <%= f.submit "検索", class: "btn btn-primary" %>
-<% end %>
-
-<%= render 'posts/index', posts: @posts%>
+ <%= render 'posts/index', posts: @posts%>
