@@ -72,7 +72,7 @@ gem 'font-awesome-sass', '~> 5.13'
 gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
 
-gem 'kaminari','~> 1.2.1'
+gem 'kaminari', '~> 1.2.1'
 
 group :development do
   gem 'letter_opener_web', '~> 1.0'
@@ -81,4 +81,10 @@ end
 gem 'dotenv-rails'
 group :production do
   gem 'mysql2'
+end
+
+gem 'pry-byebug', group: :development
+
+group :development, :test do
+  gem 'rubocop-airbnb'
 end

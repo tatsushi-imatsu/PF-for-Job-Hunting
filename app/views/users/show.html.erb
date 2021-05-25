@@ -1,21 +1,20 @@
 <div class='row'>
-    <div class="mx-auto" style="width:80%">
-      <div class="postbox"><br>
+  <div class="mx-auto" style="width:80%">
+    <div class="postbox"><br>
       <div class="container">
         <div class="profile">
-        <%= attachment_image_tag(@user, :image, :fill, 200, 200, fallback: "no_image.jpg") %>
+         <%= attachment_image_tag(@user, :image, :fill, 200, 200, fallback: "no_image.jpg") %>
         </div>
-        <%= render 'users/info', user: @user %>
-        </div>
+         <%= render 'users/info', user: @user %>
+      </div>
       <div class="actions">
-          <%= render "follow_form" %><br>
-       <p>◆&nbsp;<%= @user.last_name_kana %>&nbsp;<%= @user.first_name_kana %>&nbsp;がいいねした&nbsp;Words&nbsp;〜&nbsp;my favorite words〜</p>
-       </div>
-<%= render 'posts/index', posts: @posts%>
-
-</div>
-
- </div>
-
+         <%= render "follow_form" %><br>
+         <p>
+          ◆&nbsp;<%= @user.last_name_kana %>&nbsp;<%= @user.first_name_kana %>&nbsp;がいいねした&nbsp;Words&nbsp;〜&nbsp;my favorite words〜
+         </p>
+      </div>
+     <%= render 'posts/index', posts: @posts%>
+    </div>
+  </div>
 </div>
 

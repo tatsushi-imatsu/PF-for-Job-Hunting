@@ -1,16 +1,30 @@
 <%= paginate @posts %><br>
-<% posts.each do |post| %>
-<div class="product-box">
-<table>
-  <tr>
-  <th><span style="font-size:30px; text-center"><%= link_to post_path(post) do %><%= post.name %><% end %></span></th>
-  </tr>
-  <tr>
-  <th><span style="font-size:15px">コメント数&nbsp;<%= post.post_comments.count %></span></th>
-  </tr>
-  <tr>
-  <th><span style="font-size:15px">いいね数&nbsp;<%= post.favorites.count %></span></th>
-  </tr>
-</table>
- </div>
+ <% posts.each do |post| %>
+  <div class="product-box">
+   <table>
+    <tr>
+     <th>
+       <span style="font-size:30px; text-center">
+         <%= link_to post_path(post) do %>
+          <%= post.name %>
+         <% end %>
+       </span>
+     </th>
+    </tr>
+    <tr>
+     <th>
+       <span style="font-size:15px">
+         コメント数&nbsp;<%= post.post_comments.count %>
+       </span>
+     </th>
+    </tr>
+    <tr>
+     <th>
+       <span style="font-size:15px">
+         いいね数&nbsp;<%= post.favorites.count %>
+       </span>
+     </th>
+    </tr>
+   </table>
+  </div>
 <% end %>

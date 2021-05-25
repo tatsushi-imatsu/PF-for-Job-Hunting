@@ -8,7 +8,7 @@ class Users::SessionsController < Devise::SessionsController
 
   def reject_user
     @user = User.find_by(email: params[:user][:email].downcase)
-    unless @user.blank?
+    if @user.present?
       @valid_pass = @user.valid_password?(params[:user][:password])
       @valid_user = @user.active_for_authentication?
 
@@ -21,7 +21,6 @@ class Users::SessionsController < Devise::SessionsController
         flash[:error] = "必須項目を入力してください。"
       end
     end
-
   end
   # GET /resource/sign_in
   # def new
