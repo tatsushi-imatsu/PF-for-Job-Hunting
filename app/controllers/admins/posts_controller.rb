@@ -1,9 +1,8 @@
 class Admins::PostsController < ApplicationController
-
   before_action :authenticate_admin!
 
   def index
-    @posts = Post.all
+    @posts = Post.all.page(params[:page]).per(10)
   end
 
   def show
@@ -15,5 +14,4 @@ class Admins::PostsController < ApplicationController
     post.destroy
     redirect_to admins_posts_path
   end
-
 end

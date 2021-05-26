@@ -9,23 +9,23 @@ class ChatChannel < ApplicationCable::Channel
   end
 
   def speak
-     if data["sentence"]
+    if data["sentence"]
       Chat.create!(
         user_id: data["current_user_id"].to_i,
-        partner_id: data["partner_id"].to_i ,
+        partner_id: data["partner_id"].to_i,
         sentence: data["sentence"]
       )
-      #画面を開いているのがチャット送信者だった場合
+      # 画面を開いているのがチャット送信者だった場合
       ChatChannel.broadcast_to data["current_user_id"].to_i,
-        sentence: data["sentence"],
-        partner_id: data["partner_id"],
-        isCurrent_user: true
+                               sentence: data["sentence"],
+                               partner_id: data["partner_id"],
+                               isCurrent_user: true
 
-      #画面を開いているのがチャット受信者だった場合
+      # 画面を開いているのがチャット受信者だった場合
       ChatChannel.broadcast_to data["partner_id"].to_i,
-        sentence: data["sentence"],
-        partner_id: data["partner_id"],
-        isCurrent_user: false
-     end
+                               sentence: data["sentence"],
+                               partner_id: data["partner_id"],
+                               isCurrent_user: false
+    end
   end
 end

@@ -2,48 +2,45 @@
    <div class="picture" style="width:100%">
     <div class="mx-auto" style="width:70%">
       <div class="box"><br>
- <div class="field"><span style="font-size:20px; text-center"><h2>ユーザ情報編集 〜 Edit my profile 〜</h2></span></div>
-   <% if @user.errors.any? %>
-  <%= @user.errors.count %>件のエラーが発生しました
-  <% @user.errors.full_messages.each do |message| %>
-    <%= message %>
-  <% end %>
-<% end %>
-  <%= form_with model: @user, local:true do |f| %>
-
-    <div class="field">
-    <%= f.label :名前　姓 %>
-    <%= f.text_field :last_name, autofocus: true, placeholder: 'last name' %>
-
-    <%= f.label :　名 %>
-    <%= f.text_field :first_name, autofocus: true, placeholder: 'first name' %>
-  </div>
-
-  <div class="field">
-    <%= f.label :ローマ字（半角）姓 %>
-    <%= f.text_field :last_name_kana, autofocus: true, placeholder: 'Fill in English' %>
-
-    <%= f.label :名 %>
-    <%= f.text_field :first_name_kana, autofocus: true, placeholder: 'Fill in English' %>
-  </div>
-
-  <div class="field">
-     <%= f.label :紹介文 %><br />
-     <%= f.text_area :introduction, autofocus: true, placeholder: 'Introduction', size: "50x5" %>
-  </div>
-
-  <div class="field">
-      <%= f.label :プロフィール画像 %>
-      <%= f.attachment_field :image, autofocus: true %>
-  </div>
-  <br>
-  <div class="actions">
-     <%= f.submit "保存", class: 'btn btn-outline-light btn-lg rounded-pill' %>
-  </div>
-  <% end %>
-  <br>
-
-  </div>
-  </div>
+        <div class="field">
+          <span style="font-size:20px; text-center">
+            <h2>
+              ユーザ情報編集 〜 Edit my profile 〜
+            </h2>
+          </span>
+        </div>
+        <% if @user.errors.any? %>
+         <%= @user.errors.count %>件のエラーが発生しました
+          <% @user.errors.full_messages.each do |message| %>
+          <%= message %>
+          <% end %>
+        <% end %>
+        <%= form_with model: @user, local:true do |f| %>
+        <div class="field">
+         <%= f.label :名前　姓 %>
+         <%= f.text_field :last_name, autofocus: true, placeholder: 'last name' %>
+         <%= f.label :　名 %>
+         <%= f.text_field :first_name, autofocus: true, placeholder: 'first name' %>
+        </div>
+        <div class="field">
+         <%= f.label :ローマ字（半角）姓 %>
+         <%= f.text_field :last_name_kana, autofocus: true, placeholder: 'Fill in English' %>
+         <%= f.label :名 %>
+         <%= f.text_field :first_name_kana, autofocus: true, placeholder: 'Fill in English' %>
+        </div>
+        <div class="field">
+         <%= f.label :紹介文 %><br />
+         <%= f.text_area :introduction, autofocus: true, placeholder: 'Introduction', size: "50x5" %>
+        </div>
+        <div class="field">
+         <%= f.label :プロフィール画像 %>
+         <%= f.attachment_field :image, autofocus: true %>
+        </div><br>
+        <div class="actions">
+         <%= f.submit "保存", class: 'btn btn-outline-light btn-lg rounded-pill' %>
+        </div>
+        <% end %><br>
+      </div>
+     </div>
+   </div>
  </div>
-</div>

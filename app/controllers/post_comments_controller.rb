@@ -1,5 +1,4 @@
 class PostCommentsController < ApplicationController
-
   def create
     post = Post.find(params[:post_id])
     comment = PostComment.new(post_comment_params)
@@ -20,5 +19,4 @@ class PostCommentsController < ApplicationController
   def post_comment_params
     params.require(:post_comment).permit(:comment)
   end
-
 end

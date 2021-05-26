@@ -1,29 +1,43 @@
- <div class="row">
+<div class="row">
    <div class="mx-auto" style="width:80%">
       <h2 class="text-center">チャットで仲良くなりましよう！<br>〜Let's chat and get along with your partner!〜</h2>
-        <div id="sentence">
-            <p> <% @chats.each do |chat| %>
-                <% if chat.user_id == current_user.id %></p>
-                 <div class="mycomment"><p><%= chat.sentence %></p></div>
-                 <% else %>
-                 <div class="fukidasi">
+       <div id="sentence">
+           <h3 id="room" data-room="<%= @room.id %>" data-user="<%= current_user.id %>">
+             <%= @user.first_name_kana %> さんとのチャット
+           </h3>
+            <p>
+            <% @chats.each do |chat| %>
+              <% if chat.user_id == current_user.id %>
+            </p>
+         <div class="mycomment">
+           <p>
+             <%= chat.sentence %>
+           </p>
+         </div>
+             <% else %>
+               <div class="fukidasi">
                  <div class="chatting">
+                   <%= attachment_image_tag(@user, :image, :fill, 65, 65, fallback: "no_image.jpg") %><br><br>
                    <div class="says">
-                 <p><%= chat.sentence %></p>
+                    <p>
+                      <%= chat.sentence %>
+                    </p>
                    </div>
-                </div>
-                </div>
-                 <% end %>
-              <% end %>
+                 </div>
                </div>
-           <div class="send-form">
-            <%= form_with model: @chat do |f| %>
-              <%= f.text_area :sentence, size: "40x5" %>
-              <%= f.hidden_field :room_id %><br>
-              <%= f.submit "送信", class: 'btn btn-success btn-lg rounded-pill' %>
+              <% end %>
             <% end %>
-             <h4><%= link_to 'Mypageに戻る', user_path(current_user) %> or
-  	    <%= link_to '投稿一覧へ 〜Communicate by words〜', posts_path %></h4>
-    </div>
-  </div>
+       </div>
+       <div class="send-form">
+         <%= form_with model: @chat do |f| %>
+         <%= f.text_area :sentence, size: "40x5" %>
+         <%= f.hidden_field :room_id %><br>
+         <%= f.submit "送信", class: 'btn btn-success btn-lg rounded-pill' %>
+         <% end %>
+          <p><br>
+             <%= link_to 'Mypageに戻る', user_path(current_user), class: 'btn btn-outline-light btn-lg rounded-pill' %>&nbsp;
+  	         <%= link_to '投稿一覧へ 〜Communicate by words〜', posts_path, class: 'btn btn-outline-light btn-lg rounded-pill' %>
+  	      </p>
+       </div>
+   </div>
 </div>

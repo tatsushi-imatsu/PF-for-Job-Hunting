@@ -2,46 +2,38 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-// /************************************
-// ** チャットの吹き出し
-// ************************************/
+// // /************************************
+// // ** チャットの吹き出し
+// // ************************************/
 #sentence{
   padding: 20px 10px;
-  max-width: 450px;
+  max-width: 50%;
   margin: 15px auto;
-  text-align: right;
+  text-align: center;
   font-size: 14px;
-  background: #7da4cd;
 }
 .fukidasi {
   width: 100%;
   margin: 10px 0;
   overflow: hidden;
-   background: none;
+  background: none;
 }
 .fukidasi .chatting {
   width: 100%;
   background: none;
+  margin: 0 0 0 150px;
 }
 .says {
   display: inline-block;
   position: relative;
-  margin: 0 0 0 50px;
+  margin: 0 0 0 10px;
   padding: 10px;
-  max-width: 250px;
+  max-width: 350px;
   border-radius: 12px;
   background:  #30e852;
   text-align: right;
 }
-.says:after {
-  content: "";
-  position: absolute;
-  top: 3px;
-  border: 8px solid transparent;
-  border-right: 18px solid #30e852;
-  -webkit-transform: rotate(30deg);
-  transform: rotate(20deg);
-}
+
 .says p {
   margin: 0;
   padding: 0;
@@ -62,14 +54,88 @@
   background: #30e852;
   font-size: 15px;
 }
-.mycomment p:after {
-  content: "";
-  position: absolute;
-}
+
 /************************************
 ** 送信フォーム
 ************************************/
 .send-form{
   text-align:center;
   margin-bottom:200px;
+}
+
+@media screen and (max-width:425px) {
+ #sentence{
+  padding: 20px 10px;
+  max-width: 70%;
+  margin: 15px auto;
+  text-align: center;
+  font-size: 14px;
+}
+}
+
+@media screen and (max-width:425px) {
+ .fukidasi {
+  width: 100%;
+  margin: 10px 0;
+  overflow: hidden;
+   background: none;
+}
+}
+
+@media screen and (max-width:425px) {
+ .fukidasi .chatting {
+  width: 100%;
+  background: none;
+  margin: 0 0 0 20px;
+}
+}
+
+@media screen and (max-width:425px) {
+ .says {
+  display: inline-block;
+  position: relative;
+  margin: 0 0 0 10px;
+  padding: 10px;
+  max-width: 350px;
+  border-radius: 12px;
+  background:  #30e852;
+  text-align: right;
+}
+}
+
+@media screen and (max-width:425px) {
+ .says p {
+  margin: 0;
+  padding: 0;
+  background: #30e852;
+}
+}
+
+@media screen and (max-width:425px) {
+ .mycomment {
+  margin: 10px 0;
+  text-align: left;
+  background: none;
+}
+}
+
+@media screen and (max-width:425px) {
+ .mycomment p {
+  display: inline-block;
+  position: relative;
+  margin: 0 10px 0 0;
+  padding: 8px;
+  max-width: 250px;
+  border-radius: 12px;
+  background: #30e852;
+  font-size: 15px;
+}
+}
+
+
+@media screen and (max-width:425px) {
+ .send-form{
+  text-align:center;
+  margin-bottom:200px;
+}
 }

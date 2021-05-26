@@ -21,15 +21,16 @@
   }
 
   .postbox{
-margin-top: 3%;
-border:2px dotted  white;
+    margin-top: 3%;
+    font-size: 20px;
+    border:2px dotted  white;
 }
 
   .product-box {
 	  float: left;
   	margin-right: 22px;
 	  margin-top: 20px;
-	  margin-left: 15px;
+	  margin-left: 20px;
   	padding: 20px;
 	  border:2px dotted  white;
 }
@@ -62,3 +63,86 @@ border:2px dotted  white;
   text-align: center;
   margin-bottom: 3%;
 }
+
+@media screen and (max-width:425px) {
+ .box{
+   margin-top: 5%;
+  }
+}
+
+@media screen and (max-width:425px) {
+  .field{
+    margin-bottom: 30px;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    margin:0;
+  }
+}
+
+@media screen and (max-width:425px) {
+ .actions{
+    text-align: center;
+  }
+}
+
+@media screen and (max-width:425px) {
+ .postbox{
+    margin-top: 3%;
+    border:2px dotted  white;
+    font-size: 10px;
+    text-align: center;
+}
+}
+
+@media screen and (max-width:425px) {
+ .product-box {
+	  float: left;
+  	margin-right: 5px;
+	  margin-top: 5px;
+	  margin-left: 5px;
+  	padding: 5px;
+	  border:2px dotted  white;
+}
+}
+
+@media screen and (max-width:425px) {
+ .container-post {
+  display: flex;
+  justify-content: center; align-items: center;
+}
+}
+
+@media screen and (max-width:425px) {
+ .container-text{
+  flex-flow: column; /* 縦に並べる */
+  text-align: center;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+}
+
+@media screen and (max-width:425px) {
+ .space{
+ text-align: center;
+}
+}
+
+@media screen and (max-width:425px) {
+ .comment{
+  padding: 5px 5px;
+  max-width: 70%;
+  margin: 5px auto;
+  text-align: center;
+  font-size: 18px;
+}
+}
+
+@media screen and (max-width:425px) {
+ .comment-post{
+  text-align: center;
+  margin-bottom: 3%;
+ }
+}
+
+

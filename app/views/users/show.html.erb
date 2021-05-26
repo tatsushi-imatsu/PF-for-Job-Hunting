@@ -1,31 +1,18 @@
 <div class='row'>
-   <div class="picture" style="width:100%">
-    <div class="mx-auto" style="width:80%">
-      <div class="postbox"><br>
+  <div class="mx-auto" style="width:80%">
+    <div class="postbox"><br>
       <div class="container">
         <div class="profile">
-        <%= attachment_image_tag(@user, :image, :fill, 200, 200, fallback: "no_image.jpg") %>
+         <%= attachment_image_tag(@user, :image, :fill, 200, 200, fallback: "no_image.jpg") %>
         </div>
-        <%= render 'users/info', user: @user %>
-        </div>
+         <%= render 'users/info', user: @user %>
+      </div>
       <div class="actions">
-<% if @user == current_user %>
-  <% else %>
- <% if current_user.following?(@user) %>
-   <%= form_with model:@relationship, url:relationships_path, method: :delete, local: true do |f| %>
-   <%= f.hidden_field :followed_id, value: @user.id %>
-   <%= f.submit "フォロー外す", class: 'btn btn-outline-light btn-lg rounded-pill' %>
-   <% end %>
-   <% else %>
-   <%= form_with model:@set_relationship, url:relationships_path, local: true do |f| %>
-   <%= f.hidden_field :followed_id, value: @user.id %>
-   <%= f.submit "フォローする", class: 'btn btn-outline-light btn-lg rounded-pill' %>
-  <% end %>
- <% end %>
- <% end %>
-<br></div>
-<%= render 'posts/index', posts: @posts%>
+         <%= render "follow_form" %><br>
+          ◆&nbsp;<%= @user.last_name_kana %>&nbsp;<%= @user.first_name_kana %>&nbsp;がいいねした&nbsp;Words&nbsp;〜&nbsp;my favorite words〜
+      </div>
+     <%= render 'posts/index', posts: @posts%>
+    </div>
+  </div>
 </div>
- </div>
- </div>
-</div>
+

@@ -13,13 +13,13 @@
     <header class="shadow-sm">
       <nav class="navbar navbar-light p-4">
         <div class="container">
-          <a class="navbar-brand" href="/"><span style="font-size:30px">WORD SHARE</span></a>
+          <a class="navbar-brand" href="/"><img src="/assets/logo2.png", width="300", alt=""></a>
         <div id="sp-menu">
       <% if user_signed_in? %>
            <ul>
               <li>Let's word share !  <strong><%= current_user.last_name_kana + current_user.first_name_kana %> </strong>！ </li>
               <li><%= link_to "My page マイページ", user_path(current_user) %></li>
-              <li><%= link_to "Communicate by words 単語を共有しよう", posts_path %></li>
+              <li><%= link_to "Share  words 単語を共有しよう", posts_path %></li>
               <li><%= link_to "Log out ログアウト", destroy_user_session_path, method: :delete %></li>
            </ul>
             <% elsif admin_signed_in? %>

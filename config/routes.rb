@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   devise_for :admins, controllers: {
-  sessions:      'admins/sessions',
-  passwords:     'admins/passwords',
-  registrations: 'admins/registrations'
+    sessions: 'admins/sessions',
+    passwords: 'admins/passwords',
+    registrations: 'admins/registrations',
   }
   namespace :admins do
     resources :users, only: [:index, :show, :update, :edit, :destroy]
@@ -12,9 +12,9 @@ Rails.application.routes.draw do
   # get "/admins/search" => "searches#search"
 
   devise_for :users, controllers: {
-  sessions:      'users/sessions',
-  passwords:     'users/passwords',
-  registrations: 'users/registrations'
+    sessions: 'users/sessions',
+    passwords: 'users/passwords',
+    registrations: 'users/registrations',
   }
   root to: 'homes#top'
   get "/admins" => "admins/homes#top"
@@ -35,7 +35,6 @@ Rails.application.routes.draw do
   patch "/users/:id/hide" => "users#hide", as: 'users_hide'
   get "/users/:id/withdraw" => "users#withdraw", as: "user_withdraw"
   get "/search" => "searches#search"
-  # get "/search" => "posts#search"
 
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
@@ -45,9 +44,8 @@ Rails.application.routes.draw do
   post  'inquiry/confirm' => 'inquiry#confirm'   # 確認画面
   post  'inquiry/thanks'  => 'inquiry#thanks'    # 送信完了画面
 
-  resources :notifications, only: [:index ]
+  resources :notifications, only: [:index]
 
   get 'chat/:id' => 'chats#show', as: 'chat'
   resources :chats, only: [:create]
-
 end

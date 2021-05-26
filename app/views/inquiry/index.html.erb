@@ -1,37 +1,37 @@
 <div class='row'>
    <div class="picture" style="width:100%">
-    <div class="mx-auto" style="width:70%">
-      <div class="box"><br><br>
-<%= form_for @inquiry, :url => inquiry_confirm_path do |f| %>
-  <div class="field"><span style="font-size:30px; text-center">お問い合わせ</span></div><br>
-  </div>
-
-  <% if @inquiry.errors.any? %>
-<div class="text-center">
-      <ul>
-        <% @inquiry.errors.each do |attr, msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-</div>
-  <% end %>
-  <div class="field">
-      <%= f.label :名前 %><span class="text-danger">（必須）</span>
-      <%= f.text_field :name, autofocus: true, size: 20 %><br>
-      <%= f.label :メールアドレス %><span class="text-danger">（必須）</span>
-      <%= f.text_field :email, autofocus: true, size: 25 %>
-  </div>
-  <div class="field">
-<br><%= f.label :内容 %>
-  </div>
-  <div class="field">
-    <%= f.text_area :message, autofocus: true, size: "30x5" %>
-  </div>
-<div class="actions">
-  <br><%= f.submit '確認', class: 'btn btn-outline-light btn-lg rounded-pill' %>
-</div>
-<% end %><br>
+     <div class="mx-auto" style="width:70%">
+       <div class="box"><br>
+         <%= form_with model:@inquiry, :url => inquiry_confirm_path, local: true do |f| %>
+         <div class="field">
+           <span style="font-size:30px; text-center">お問い合わせ</span></div>
+         </div>
+         <% if @inquiry.errors.any? %>
+         <div class="text-center">
+         <% @inquiry.errors.each do |attr, msg| %>
+         ・空欄<%= msg %>
+         <% end %>
+         </div>
+         <% end %>
+         <div class="field">
+          <%= f.label :名前 %>
+           <span class="text-danger">（必須）</span>
+          <%= f.text_field :name, autofocus: true, size: 20 %><br>
+          <%= f.label :メールアドレス %>
+           <span class="text-danger">（必須）</span>
+          <%= f.text_field :email, autofocus: true, size: 25 %>
+         </div>
+         <div class="field">
+          <br><%= f.label :内容 %>
+         </div>
+         <div class="field">
+          <%= f.text_area :message, autofocus: true, size: "30x5" %>
+         </div>
+         <div class="actions">
+          <br><%= f.submit '確認', class: 'btn btn-outline-light rounded-pill' %>
+         </div>
+         <% end %><br>
+       </div>
+     </div>
    </div>
-  </div>
- </div>
 </div>

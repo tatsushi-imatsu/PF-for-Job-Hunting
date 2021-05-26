@@ -56,6 +56,9 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
+  gem 'rspec-rails'
+  gem "factory_bot_rails"
+  gem 'faker'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -72,7 +75,7 @@ gem 'font-awesome-sass', '~> 5.13'
 gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
 
-gem 'kaminari','~> 1.2.1'
+gem 'kaminari', '~> 1.2.1'
 
 group :development do
   gem 'letter_opener_web', '~> 1.0'
@@ -82,3 +85,11 @@ gem 'dotenv-rails'
 group :production do
   gem 'mysql2'
 end
+
+gem 'pry-byebug', group: :development
+
+group :development, :test do
+  gem 'rubocop-airbnb'
+end
+
+gem 'whenever', require: false

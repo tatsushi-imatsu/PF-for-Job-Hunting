@@ -1,14 +1,15 @@
 <div class='row'>
-<div class="mx-auto" style="width:70%">
- <%= form_with model: @user, url: admins_user_path, method: :patch, local:true do |f| %>
-
-  <p class="text-center"><span style="font-size:35px; background: none;"><%= f.label :会員ステータス %></span><br>
-  <br><%= f.radio_button :is_deleted, false %></span>
-  <%= f.label :is_deleted, "有効" %>
-  <%= f.radio_button :is_deleted, true %>
-  <%= f.label :is_deleted, "退会" %>
-  <br><br><%= f.submit "ステータスを保存", class: "btn btn-success"%>
-
-<% end %>
-</div>
+ <div class="mx-auto" style="width:70%">
+  <%= form_with model: @user, url: admins_user_path, method: :patch, local:true do |f| %>
+   <p class="text-center">
+    <span style="font-size:35px">
+     <%= f.label :会員ステータス %>
+    </span><br><br>
+     <%= f.radio_button :is_deleted, false %>
+     <%= f.label :is_deleted, "有効" %>
+     <%= f.radio_button :is_deleted, true %>
+     <%= f.label :is_deleted, "退会" %><br><br>
+     <%= f.submit "ステータスを保存", class: "btn btn-success"%>
+  <% end %>
+ </div>
 </div>

@@ -1,10 +1,10 @@
 class PostsController < ApplicationController
- before_action :authenticate_user!
+  before_action :authenticate_user!
   def index
     @posts = Post.all.page(params[:page]).per(5)
     @post = current_user
     @all_ranks = Post.find(Favorite.group(:post_id).order('count(post_id) desc').limit(3).pluck(:post_id))
-    @my_ranks = @all_ranks.select{ |post| post.user_id == current_user.id }
+    @my_ranks = @all_ranks.select { |post| post.user_id == current_user.id }
   end
 
   def show
@@ -16,24 +16,20 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user = current_user
     if @post.save
-      redirect_to posts_path, notice: "You have created book successfully."
+      redirect_to posts_path
     else
-      @user = current_user
-      @posts = Post.all
-      render :index
+      redirect_to posts_path
     end
   end
 
   def edit
     @post = Post.find(params[:id])
     if @post.user == current_user
-      render:edit
+      render :edit
     else
       redirect_to post_path(@post)
     end
   end
-
-
 
   def update
     @post = Post.find(params[:id])
@@ -50,11 +46,9 @@ class PostsController < ApplicationController
     redirect_to user_path(current_user)
   end
 
-
   private
 
   def post_params
     params.require(:post).permit(:name, :body, :user_id)
   end
-
 end
