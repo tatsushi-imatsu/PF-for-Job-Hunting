@@ -5,9 +5,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates :last_name, presence: true
-  validates :last_name_kana, format: { with: /\A[a-zA-Z]+\z/ }
+  validates :last_name_kana, format: { with: /\A[a-z0-9]+\z/ }
   validates :first_name, presence: true
-  validates :first_name_kana, format: { with: /\A[a-zA-Z]+\z/ }
+  validates :first_name_kana, format: { with: /\A[a-z0-9]+\z/ }
   validates :introduction, length: { maximum: 100 }
   validates :email,
             format: { with: /\A[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*\z/ },
