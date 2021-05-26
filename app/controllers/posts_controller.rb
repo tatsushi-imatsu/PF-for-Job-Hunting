@@ -16,11 +16,9 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user = current_user
     if @post.save
-      redirect_to posts_path, notice: "You have created book successfully."
+      redirect_to posts_path
     else
-      @user = current_user
-      @posts = Post.all
-      render :index
+      redirect_to posts_path
     end
   end
 
