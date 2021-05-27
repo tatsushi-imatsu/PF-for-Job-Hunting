@@ -37,12 +37,16 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'localhost:3000' }
   config.action_mailer.delivery_method = :smtp
   # SMTPサーバ(メール送信用サーバ）にてgmail送信用の設定記述
+
+  mail = ENV['SEND_MAIL']
+  pass = ENV['SEND_MAIL_PASSWORD']
+
   config.action_mailer.smtp_settings = {
   address:              'smtp.gmail.com',
   port:                  587,
   domain:               'gmail.com',
-  user_name:            ENV['SEND_MAIL'],
-  password:             ENV['SEND_MAIL_PASSWORD'],
+  user_name:            mail,
+  password:             pass,
   authentication:       'plain',
   enable_starttls_auto:  true
   }
