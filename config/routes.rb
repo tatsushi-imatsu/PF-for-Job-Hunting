@@ -36,9 +36,6 @@ Rails.application.routes.draw do
   get "/users/:id/withdraw" => "users#withdraw", as: "user_withdraw"
   get "/search" => "searches#search"
 
-  if Rails.env.development?
-    mount LetterOpenerWeb::Engine, at: "/letter_opener"
-  end
 
   get   'inquiry'         => 'inquiry#index'     # 入力画面
   post  'inquiry/confirm' => 'inquiry#confirm'   # 確認画面

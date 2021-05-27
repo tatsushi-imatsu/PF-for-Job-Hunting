@@ -77,10 +77,6 @@ gem "refile-mini_magick"
 
 gem 'kaminari', '~> 1.2.1'
 
-group :development do
-  gem 'letter_opener_web', '~> 1.0'
-end
-
 gem 'dotenv-rails'
 group :production do
   gem 'mysql2'
