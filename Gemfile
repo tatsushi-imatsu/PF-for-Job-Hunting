@@ -86,10 +86,10 @@ group :production do
   gem 'mysql2'
 end
 
-gem 'pry-byebug', group: :development
 
 group :development, :test do
   gem 'rubocop-airbnb'
+  gem 'pry-byebug'
 end
 
 gem 'whenever', require: false
