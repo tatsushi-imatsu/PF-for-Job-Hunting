@@ -27,7 +27,7 @@ SNSサイトとして、コミュニティを形成出来るサイトとなっ�
 
 ## 設計書
 
-### ER 図
+### ER 図 ・フレームワーク
 https://drive.google.com/file/d/1c2kzKYyu3rY8TD4TYxdWG4sLSQUa-7v1/view?usp=sharing
 
 ### DBテーブル一覧・アプリケーション詳細設計・WBS
