@@ -24,7 +24,11 @@
        </span>
     </th>
     <th>
+      <% if @user == current_user %>
       &nbsp;<%= link_to followings_user_path(user.id) do %>&nbsp;&nbsp;<%= user.followings.count %>人<% end %>
+      <% else %>
+      &nbsp;&nbsp;<%= user.followings.count %>人
+      <% end %>
     </th>
   </tr>
   <tr>
