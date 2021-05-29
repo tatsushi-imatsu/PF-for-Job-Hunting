@@ -30,7 +30,7 @@ SNSサイトとして、コミュニティを形成出来るサイトとなっ�
 ### ER 図 ・フレームワーク
 https://drive.google.com/file/d/1c2kzKYyu3rY8TD4TYxdWG4sLSQUa-7v1/view?usp=sharing
 
-### DBテーブル一覧・アプリケーション詳細設計・WBS
+### DBテーブル一覧・アプリケーション詳細設計（導入したGemも記載）
 https://drive.google.com/file/d/1_-IBkZtTZt4xw4hNAKVuZCsIR6ugVWhp/view?usp=sharing
 
 ## チャレンジ要素一覧
