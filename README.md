@@ -33,7 +33,7 @@ https://drive.google.com/file/d/1c2kzKYyu3rY8TD4TYxdWG4sLSQUa-7v1/view?usp=shari
 ### DBテーブル一覧・アプリケーション詳細設計（導入したGemも記載）
 https://drive.google.com/file/d/1_-IBkZtTZt4xw4hNAKVuZCsIR6ugVWhp/view?usp=sharing
 
-## DMM WEBCAMP チャレンジ実装とその他オリジナル実装一覧
+## DMM WEBCAMP チャレンジ実装+オリジナル実装一覧
 
 https://docs.google.com/spreadsheets/d/1p1wmzeqmyB4RDidsBhm17kwPRrbDvbp1elCcvzbbxYk/edit?usp=sharing
 
