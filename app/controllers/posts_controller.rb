@@ -1,11 +1,10 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
   def index
-    @posts = Post.all.page(params[:posts]).per(5)
+    @posts = Post.all.page(params[:page]).per(5)
     @post = current_user
-    @all_ranks = Post.find(Favorite.group(:post_id).order('count(post_id) desc').limit(3).pluck(:post_id))
-    @all_over_ranks = Post.find(Favorite.group(:post_id).order('count(post_id) desc').pluck(:post_id))
-    @my_ranks = @all_over_ranks.select { |post| post.user_id == current_user.id }.take(3)
+    @all_ranks = Post.find(Favorite.group(:post_id).order(Arel.sql('count(post_id) desc')).limit(3).pluck(:post_id))
+    @my_ranks = @all_ranks.select { |post| post.user_id == current_user.id }.take(3)
   end
 
   def show
