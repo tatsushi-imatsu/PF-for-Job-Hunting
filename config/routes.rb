@@ -17,6 +17,7 @@ Rails.application.routes.draw do
     registrations: 'users/registrations',
   }
   root to: 'homes#top'
+  get "home/about" => "homes#about"
   get "/admins" => "admins/homes#top"
 
   resources :posts, only: [:index, :show, :create, :edit, :update, :destroy] do
