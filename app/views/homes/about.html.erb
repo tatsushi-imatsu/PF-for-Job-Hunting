@@ -1,16 +1,24 @@
  <div class='row'>
   <div class="picture" style="width:100%">
    <div class="field">
-     <div class="mx-auto" style="width:50% ">
-      <div class="box">
-        <h2>Word Shareの使い方〜How to use〜</h2>
-        <!--ここに画像スライダーを導入予定-->
+     <div class="mx-auto" style="width:90% ">
+      <div class="box"><br>
+        <h2>Word Shareの使い方〜How to use〜</h2><br>
+        <div class="owl-carousel">
+         <div><img src="<%= asset_path "about_1.png" %>", width="300", alt=""></div>
+         <div><img src="<%= asset_path "about_2.png" %>", width="300", alt=""></div>
+         <div><img src="<%= asset_path "about_3.png" %>", width="300", alt=""></div>
+        </div><br>
+        <%= javascript_tag do %>
+         $(".owl-carousel").owlCarousel();
+        <% end %>
+        <!--クラス名"owl-carousel"の閉じdiv直後に設定するjs-->
         <ul>言葉と意味をセットで投稿できます。総合ランキングでは全体のいいね数が多い順番で表示されます。
             マイランキングでは、ログインユーザーの投稿の中でいいねが多い順番に表示されます。各単語を
-            クリックすることで、単語の意味と他の<br>ユーザーのコメントをチェックすることが出来ます。
+            クリックすることで、単語の意味と他のユーザーのコメントをチェックすることが出来ます。
             マイページでは、フォロー・フォロワー数といった会員情報の確認と編集が可能です。他のユーザーが
-            ログインユーザーの投稿に対しいいね・コメント・フォローした際には、通知が<br>届きます。
-            ユーザーページでは、そのユーザーがいいねをした他のユーザーの投稿を共有することが出来ます。<br>
+            ログインユーザーの投稿に対しいいね・コメント・フォローした際には、通知が届きます。
+            ユーザーページでは、そのユーザーがいいねをした他のユーザーの投稿を共有することが出来ます。
             また、フォローしているユーザーにDMが出来ます。DM後、その相手に対して通知が届きます。</ul>
       </div>
      </div>
