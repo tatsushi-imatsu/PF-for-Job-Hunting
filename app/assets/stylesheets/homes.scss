@@ -22,7 +22,8 @@
   .box{
    margin-top: 10%;
   }
-
+  
+// スマートフォンサイズ対応のため、レスポンシブ設定
   @media screen and (max-width:425px) {
    .picture {
   position: relative;/*相対配置*/
@@ -35,9 +36,9 @@
 
 @media screen and (max-width:425px) {
    .field{
-    margin-bottom: 30px;
+    margin-bottom: 5%;
     text-align: center;
-    top: 50%;
+    top: 30%;
     left: 50%;
     margin:0;
     background: none;
@@ -46,6 +47,18 @@
 
 @media screen and (max-width:425px) {
    .box{
-   margin-top: 10%;
+   margin-top: 5%;
+  }
+}
+
+@media screen and (max-width:425px) {
+   .owl-carousel{
+  }
+}
+
+
+@media screen and (max-width:425px) {
+   .space{
+ text-align: center;
   }
 }
