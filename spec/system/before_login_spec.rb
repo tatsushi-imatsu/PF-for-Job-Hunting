@@ -12,20 +12,20 @@ describe 'ユーザログイン前のテスト' do
         log_in_link = find_all('a')[4].native.inner_text
         expect(log_in_link).to match(/log in/i)
       end
-#       it 'Log inリンクの内容が正しい' do
-#         log_in_link = find_all('a')[5].native.inner_text
-#         expect(page).to have_link log_in_link, href: new_user_session_path
-#       end
-#       it 'Sign Upリンクが表示される: 左上から6番目のリンクが「Sign Up」である' do
-#         sign_up_link = find_all('a')[6].native.inner_text
-#         expect(sign_up_link).to match(/sign up/i)
-#       end
-#       it 'Sign Upリンクの内容が正しい' do
-#         sign_up_link = find_all('a')[6].native.inner_text
-#         expect(page).to have_link sign_up_link, href: new_user_registration_path
-#       end
-#     end
-#   end
+      it 'Log inリンクの内容が正しい' do
+        log_in_link = find_all('a')[4].native.inner_text
+        expect(page).to have_link log_in_link, href: new_user_session_path
+      end
+      it 'Sign Upリンクが表示される: ハンバーガーメニュー上から3番目のリンクが「Join 新規登録」である' do
+        sign_up_link = find_all('a')[3].native.inner_text
+        expect(sign_up_link).to match(/join/i)
+      end
+      it 'Sign Upリンクの内容が正しい' do
+        sign_up_link = find_all('a')[3].native.inner_text
+        expect(page).to have_link sign_up_link, href: new_user_registration_path
+      end
+  #   end
+  # end
 
 #   describe 'アバウト画面のテスト' do
 #     before do
