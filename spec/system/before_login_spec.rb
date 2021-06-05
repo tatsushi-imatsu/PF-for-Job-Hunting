@@ -27,17 +27,17 @@ describe 'ユーザログイン前のテスト' do
   #   end
   # end
 
-#   describe 'アバウト画面のテスト' do
-#     before do
-#       visit '/home/about'
-#     end
+  describe 'アバウト画面のテスト' do
+    before do
+      visit '/home/about'
+    end
 
-#     context '表示内容の確認' do
-#       it 'URLが正しい' do
-#         expect(current_path).to eq '/home/about'
-#       end
-#     end
-#   end
+    context '表示内容の確認' do
+      it 'URLが正しい' do
+        expect(current_path).to eq '/home/about'
+      end
+    end
+  end
 
 #   describe 'ヘッダーのテスト: ログインしていない場合' do
 #     before do

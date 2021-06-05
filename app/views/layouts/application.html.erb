@@ -14,6 +14,7 @@
       <nav class="navbar navbar-light p-4">
         <div class="container">
           <a class="navbar-brand" href="/"><img src="<%= asset_path "logo2.png" %>", width="300", alt=""></a>
+          <!--本番環境適用のため、asset_path指定-->
         <div id="sp-menu">
       <% if user_signed_in? %>
            <ul>
@@ -57,7 +58,7 @@
             });
           });
         </script>
-
+         <!--ハンバーガーメニューのjsコード-->
        </div>
       </nav>
     </header>
