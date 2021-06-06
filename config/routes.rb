@@ -9,7 +9,6 @@ Rails.application.routes.draw do
     resources :posts, only: [:index, :show, :destroy]
     get 'search' => 'searches#search'
   end
-  # get "/admins/search" => "searches#search"
 
   devise_for :users, controllers: {
     sessions: 'users/sessions',
@@ -46,4 +45,11 @@ Rails.application.routes.draw do
 
   get 'chat/:id' => 'chats#show', as: 'chat'
   resources :chats, only: [:create]
+
+  # Refileの画像投稿時に404を返さないようにする記述
+    mount Refile.app, at: Refile.mount_point, as: :refile_app
+  # どこにも当てはまらないPath（例外処理）
+    get '*not_found' => 'application#render_404'
+   
+
 end
