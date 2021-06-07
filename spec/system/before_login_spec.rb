@@ -58,36 +58,35 @@ describe 'ユーザログイン前のテスト' do
       end
     end
 
-#     context 'リンクの内容を確認' do
-#       subject { current_path }
+    context 'リンクの内容を確認' do
+      subject { current_path }
 
-#       it 'Homeを押すと、トップ画面に遷移する' do
-#         home_link = find_all('a')[1].native.inner_text
-#         home_link = home_link.delete(' ')
-#         home_link.gsub!(/\n/, '')
-#         click_link home_link
-#         is_expected.to eq '/'
-#       end
-#       it 'Aboutを押すと、アバウト画面に遷移する' do
-#         about_link = find_all('a')[2].native.inner_text
-#         about_link = about_link.gsub(/\n/, '').gsub(/\A\s*/, '').gsub(/\s*\Z/, '')
-#         click_link about_link
-#         is_expected.to eq '/home/about'
-#       end
-#       it 'sign upを押すと、新規登録画面に遷移する' do
-#         signup_link = find_all('a')[3].native.inner_text
-#         signup_link = signup_link.gsub(/\n/, '').gsub(/\A\s*/, '').gsub(/\s*\Z/, '')
-#         click_link signup_link
-#         is_expected.to eq '/users/sign_up'
-#       end
-#       it 'loginを押すと、ログイン画面に遷移する' do
-#         login_link = find_all('a')[4].native.inner_text
-#         login_link = login_link.gsub(/\n/, '').gsub(/\A\s*/, '').gsub(/\s*\Z/, '')
-#         click_link login_link
-#         is_expected.to eq '/users/sign_in'
-#       end
-#     end
-#   end
+      it 'Homeを押すと、トップ画面に遷移する' do
+        home_link = find_all('a')[1].native.inner_text
+        home_link.gsub!(/\n/, '')
+        click_link home_link
+        is_expected.to eq '/'
+      end
+      it 'Aboutを押すと、How to share画面に遷移する' do
+        about_link = find_all('a')[2].native.inner_text
+        about_link = about_link.gsub(/\n/, '').gsub(/\A\s*/, '').gsub(/\s*\Z/, '')
+        click_link about_link
+        is_expected.to eq '/home/about'
+      end
+      it 'sign upを押すと、新規登録画面に遷移する' do
+        signup_link = find_all('a')[3].native.inner_text
+        signup_link = signup_link.gsub(/\n/, '').gsub(/\A\s*/, '').gsub(/\s*\Z/, '')
+        click_link signup_link
+        is_expected.to eq '/users/sign_up'
+      end
+      it 'loginを押すと、ログイン画面に遷移する' do
+        login_link = find_all('a')[4].native.inner_text
+        login_link = login_link.gsub(/\n/, '').gsub(/\A\s*/, '').gsub(/\s*\Z/, '')
+        click_link login_link
+        is_expected.to eq '/users/sign_in'
+      end
+    end
+  
 
 #   describe 'ユーザ新規登録のテスト' do
 #     before do

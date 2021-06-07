@@ -7,6 +7,14 @@
             投稿単語　編集 〜Editing your word〜
           </span>
         </div>
+        <div class="field">
+        <% if @post.errors.any? %>
+         <%= @post.errors.count %>件のエラーが発生しました<br>
+          <% @post.errors.full_messages.each do |message| %>
+          <%= message %><br>
+          <% end %>
+        <% end %>
+        </div>
     	  <%= form_with model:@post, local: true do |f| %>
          <div class="field">
           <%= f.label :単語 %><br>
