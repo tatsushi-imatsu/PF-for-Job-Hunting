@@ -9,12 +9,14 @@
             </h2>
           </span>
         </div>
+        <div class="field">
         <% if @user.errors.any? %>
-         <%= @user.errors.count %>件のエラーが発生しました
+         <%= @user.errors.count %>件のエラーが発生しました<br>
           <% @user.errors.full_messages.each do |message| %>
-          <%= message %>
+          <%= message %><br>
           <% end %>
         <% end %>
+        </div>
         <%= form_with model: @user, local:true do |f| %>
         <div class="field">
          <%= f.label :名前　姓 %>
