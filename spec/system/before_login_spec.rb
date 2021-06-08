@@ -126,30 +126,33 @@ describe 'ユーザログイン前のテスト' do
       end
     end
 
-#     context '新規登録成功のテスト' do
-#       before do
-#         fill_in 'user[name]', with: Faker::Lorem.characters(number: 10)
-#         fill_in 'user[email]', with: Faker::Internet.email
-#         fill_in 'user[password]', with: 'password'
-#         fill_in 'user[password_confirmation]', with: 'password'
-#       end
+    context '新規登録成功のテスト' do
+      before do
+        fill_in 'user[last_name]', with: Faker::Lorem.characters(number: 10)
+        fill_in 'user[first_name]', with: Faker::Lorem.characters(number: 10)
+        fill_in 'user[last_name_kana]', with: Faker::Lorem.characters(number: 10)
+        fill_in 'user[first_name_kana]', with: Faker::Lorem.characters(number: 10)
+        fill_in 'user[email]', with: Faker::Internet.email
+        fill_in 'user[password]', with: 'password'
+        fill_in 'user[password_confirmation]', with: 'password'
+      end
 
-#       it '正しく新規登録される' do
-#         expect { click_button 'Sign up' }.to change(User.all, :count).by(1)
-#       end
-#       it '新規登録後のリダイレクト先が、新規登録できたユーザの詳細画面になっている' do
-#         click_button 'Sign up'
-#         expect(current_path).to eq '/users/' + User.last.id.to_s
-#       end
-#     end
-#   end
+      it '正しく新規登録される' do
+        expect { click_button 'Join!' }.to change(User.all, :count).by(1)
+      end
+      it '新規登録後のリダイレクト先が、投稿一覧になっている' do
+        click_button 'Join!'
+        expect(current_path).to eq '/posts'
+      end
+    end
+  end
 
-#   describe 'ユーザログイン' do
-#     let(:user) { create(:user) }
+  describe 'ユーザログイン' do
+    let(:user) { create(:user) }
 
-#     before do
-#       visit new_user_session_path
-#     end
+    before do
+      visit new_user_session_path
+    end
 
 #     context '表示内容の確認' do
 #       it 'URLが正しい' do
