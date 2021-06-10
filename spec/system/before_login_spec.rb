@@ -154,26 +154,36 @@ describe 'ユーザログイン前のテスト' do
       visit new_user_session_path
     end
 
-#     context '表示内容の確認' do
-#       it 'URLが正しい' do
-#         expect(current_path).to eq '/users/sign_in'
-#       end
-#       it '「Log in」と表示される' do
-#         expect(page).to have_content 'Log in'
-#       end
-#       it 'nameフォームが表示される' do
-#         expect(page).to have_field 'user[name]'
-#       end
-#       it 'passwordフォームが表示される' do
-#         expect(page).to have_field 'user[password]'
-#       end
-#       it 'Sign upボタンが表示される' do
-#         expect(page).to have_button 'Log in'
-#       end
-#       it 'emailフォームは表示されない' do
-#         expect(page).not_to have_field 'user[email]'
-#       end
-#     end
+    context '表示内容の確認' do
+      it 'URLが正しい' do
+        expect(current_path).to eq '/users/sign_in'
+      end
+      it '「LOG IN」と表示される' do
+        expect(page).to have_content 'LOG IN'
+      end
+      it 'last_nameフォームが表示されない' do
+        expect(page).not_to have_field 'user[last_name]'
+      end
+      it 'first_nameフォームが表示されない' do
+        expect(page).not_to have_field 'user[first_name]'
+      end
+      it 'last_name_kanaフォームが表示されない' do
+        expect(page).not_to have_field 'user[last_name_kana]'
+      end
+      it 'first_name_kanaフォームが表示されない' do
+        expect(page).not_to have_field 'user[first_name_kana]'
+      end
+      it 'emailフォームは表示される' do
+        expect(page).to have_field 'user[email]'
+      end
+      it 'passwordフォームが表示される' do
+        expect(page).to have_field 'user[password]'
+      end
+      it 'ログインボタンが表示される' do
+        expect(page).to have_button 'ログイン'
+      end
+      
+    end
 
 #     context 'ログイン成功のテスト' do
 #       before do
