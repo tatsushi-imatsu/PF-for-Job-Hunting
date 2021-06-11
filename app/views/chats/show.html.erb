@@ -30,7 +30,8 @@
        </div>
        <div class="send-form">
          <%= form_with model: @chat do |f| %>
-         <%= f.text_area :sentence, size: "40x5" %>
+         <div><span id=countUp>0</span>文字</div>
+         <%= f.text_area :sentence, size: "40x5", placeholder: 'Within100characters 100文字以内' %>
          <%= f.hidden_field :room_id %><br>
          <%= f.submit "送信", class: 'btn btn-success btn-lg rounded-pill' %>
          <% end %>

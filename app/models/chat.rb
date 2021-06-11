@@ -2,7 +2,7 @@ class Chat < ApplicationRecord
   belongs_to :user
   belongs_to :room
 
-  validates :sentence, presence: true
+  validates :sentence, presence: true, length: { maximum: 100 }
   
   has_many :notifications, dependent: :destroy
   

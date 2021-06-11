@@ -91,3 +91,5 @@ end
 gem 'whenever', require: false
 
 gem 'owlcarousel-rails'
+
+gem 'social-share-button'

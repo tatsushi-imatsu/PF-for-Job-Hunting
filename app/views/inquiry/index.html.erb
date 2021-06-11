@@ -22,9 +22,12 @@
           <%= f.text_field :email, autofocus: true, size: 25 %>
          </div>
          <div class="field">
-          <br><%= f.label :内容 %>
+          <br><%= f.label :内容（5文字以上入力してください。） %>
          </div>
          <div class="field">
+           <div>
+            <span id=countUp>0</span>文字
+           </div>
           <%= f.text_area :message, autofocus: true, size: "30x5" %>
          </div>
          <div class="actions">

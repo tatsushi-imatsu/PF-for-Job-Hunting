@@ -17,7 +17,42 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
+//= require_tree .
+//= require social-share-button 
 //= require owl.carousel
 $(function(){
   $("#hoge").t()
 });
+
+
+$(function () {
+  $("textarea").keyup(function(){
+    var counter = $(this).val().length;
+    $("#countUp").text(counter);
+    if(counter == 0){
+      $("#countUp").text("0");
+    }
+    if(counter >= 100){
+      $("#countUp").css("color","red");
+    } else {
+      $("#countUp").css("color","white");
+    }
+  });
+});
+
+$(function() {
+    var password  = '#js-password';
+    var passcheck = '#js-passcheck';
+
+    changeInputtype(password, passcheck);
+});
+
+function changeInputtype(password, passcheck) {
+    $(passcheck).change(function() {
+        if ($(this).prop('checked')) {
+            $(password).attr('type','text');
+        } else {
+            $(password).attr('type','password');
+        }
+    });
+}

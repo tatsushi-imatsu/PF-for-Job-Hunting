@@ -9,7 +9,8 @@
         <p>
          <span style="font-size:25px;">
            単語&nbsp;(word)<br><br>
-           <%= @post.name %>
+           <%= @post.name %><br>
+           <%= social_share_button_tag(@post.name) %>
          </span>
         </p>
           <% if @post.user_id == current_user.id %>
@@ -45,7 +46,7 @@
       <div class="comment">
        <% @post.post_comments.each do |post_comment| %>
         <span style="font-size:15px; text-center">
-         <p>
+         <p><br>
           <%= attachment_image_tag(post_comment.user, :image, :fill, 65, 65, fallback: "no_image.jpg") %>
           <%= post_comment.user.last_name_kana %><%= post_comment.user.first_name_kana %>
           <%= post_comment.created_at.strftime('%Y/%m/%d') %><br><br>
@@ -59,7 +60,10 @@
       </div>
       <div class="comment-post">
         <%= form_with(model:[@post, @post_comment], remote: true) do |f| %>
-         <%= f.text_area :comment, rows:'2',placeholder: "コメントをここに", size: "30x2" %><br>
+          <div>
+           <span id=countUp>0</span>文字
+          </div>
+         <%= f.text_area :comment, rows:'2',placeholder: "コメント100文字以内", size: "30x2" %><br>
          <%= f.submit "送信する", class: 'btn btn-outline-light btn-sm rounded-pill' %>
         <% end %>
      </div>
