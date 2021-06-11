@@ -1,7 +1,8 @@
 <%= form_with model: Post.new, local:true do |f| %>
   <%= f.label :言葉 %>
-  <%= f.text_field :name, class: 'form-control post_name' %>
+  <%= f.text_field :name, placeholder: "Let's Share Words!", class: 'form-control post_name' %>
   <%= f.label :意味・説明 %>
-  <%= f.text_area :body, class: 'form-control post_body' %><br>
+   <div><span id=countUp>0</span>文字</div>
+  <%= f.text_area :body, placeholder: "100文字以内です。Within 100characters", size: "35x5", class: 'form-control post_body' %><br>
   <%= f.submit "Share!", class: 'btn btn-outline-light btn-lg rounded-pill' %>
 <% end %><br>

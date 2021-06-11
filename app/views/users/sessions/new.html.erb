@@ -15,8 +15,11 @@
 
   <br><div class="field">
     <%= f.label :パスワード %>
-    <%= f.password_field :password, autocomplete: "current-password", placeholder: 'password' %>
+    <%= f.password_field :password, autocomplete: "current-password", placeholder: 'password', id:"js-password" %><br><br>
+    <input type="checkbox" id="js-passcheck"/>
+    <label for="js-passcheck">パスワードを表示する</label>
   </div>
+    
 
   <% if devise_mapping.rememberable? %>
     <div class="field">
@@ -25,8 +28,8 @@
     </div>
   <% end %>
 
-  <br><div class="actions">
-    <%= f.submit "ログイン", class: "btn btn-outline-light btn-lg rounded-pill" %>
+  <div class="actions">
+    <%= f.submit "ログイン", class: "btn btn-outline-light rounded-pill" %>
   </div>
 <% end %>
 <div class="actions">

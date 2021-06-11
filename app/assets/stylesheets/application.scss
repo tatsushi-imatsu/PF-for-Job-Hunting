@@ -10,6 +10,7 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require social-share-button
  *= require_tree .
  *= require_self
  *= require owl.carousel
@@ -22,6 +23,7 @@
  @import 'font-awesome';
  @import url('https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap');
 // フォントスタイル適用
+ @import "social-share-button";
 
 * {
   margin: 0;
@@ -142,4 +144,14 @@
   transition: .3s;
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
+}
+
+$size: 24px;
+
+.social-share-button {
+  .ssb-icon {
+    background-size: $size $size;
+    height: $size;
+    width: $size;
+  }
 }
