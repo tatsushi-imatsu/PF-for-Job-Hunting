@@ -197,28 +197,28 @@ describe 'ユーザログイン前のテスト' do
       end
     end
 
-#     context 'ログイン失敗のテスト' do
-#       before do
-#         fill_in 'user[name]', with: ''
-#         fill_in 'user[password]', with: ''
-#         click_button 'Log in'
-#       end
+    context 'ログイン失敗のテスト' do
+      before do
+        fill_in 'user[email]', with: ''
+        fill_in 'user[password]', with: ''
+        click_button 'ログイン'
+      end
 
-#       it 'ログインに失敗し、ログイン画面にリダイレクトされる' do
-#         expect(current_path).to eq '/users/sign_in'
-#       end
-#     end
-#   end
+      it 'ログインに失敗し、ログイン画面にリダイレクトされる' do
+        expect(current_path).to eq '/users/sign_in'
+      end
+    end
+  end
 
-#   describe 'ヘッダーのテスト: ログインしている場合' do
-#     let(:user) { create(:user) }
+  describe 'ヘッダーのテスト: ログインしている場合' do
+    let(:user) { create(:user) }
 
-#     before do
-#       visit new_user_session_path
-#       fill_in 'user[name]', with: user.name
-#       fill_in 'user[password]', with: user.password
-#       click_button 'Log in'
-#     end
+    before do
+      visit new_user_session_path
+      fill_in 'user[email]', with: user.email
+      fill_in 'user[password]', with: user.password
+      click_button 'ログイン'
+    end
 
 #     context 'ヘッダーの表示を確認' do
 #       it 'タイトルが表示される' do
