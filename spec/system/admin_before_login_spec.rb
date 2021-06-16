@@ -16,69 +16,18 @@ describe '管理人ログイン前のテスト' do
         log_in_link = find_all('a')[1].native.inner_text
         expect(page).to have_link log_in_link, href: new_admin_session_path
       end
+      it 'loginを押すと、ログイン画面に遷移する' do
+        login_link = find_all('a')[1].native.inner_text
+        login_link = login_link.gsub(/\n/, '').gsub(/\A\s*/, '').gsub(/\s*\Z/, '')
+        click_link login_link
+      end
     end
   end
 
-#   describe 'アバウト画面のテスト' do
-#     before do
-#       visit '/home/about'
-#     end
-
-#     context '表示内容の確認' do
-#       it 'URLが正しい' do
-#         expect(current_path).to eq '/home/about'
-#       end
-#     end
-#   end
-
-#   describe 'ヘッダーのテスト: ログインしていない場合' do
-#     before do
-#       visit root_path
-#     end
-
-#     context '表示内容の確認' do
-#       it 'タイトルが表示される' do
-#         expect(page).to have_content 'Word Share'
-#       end
-#       it 'Homeリンクが表示される: ハンバーガーメニュー上から1番目のリンクが「Home」である' do
-#         home_link = find_all('a')[1].native.inner_text
-#         expect(home_link).to match(/home/i)
-#       end
-#       it 'Aboutリンクが表示される: ハンバーガーメニュー上から2番目のリンクが「How to share」である' do
-#         about_link = find_all('a')[2].native.inner_text
-#         expect(about_link).to match(/how to share/i)
-#       end
-#     end
-
-#     context 'リンクの内容を確認' do
-#       subject { current_path }
-
-#       it 'Homeを押すと、トップ画面に遷移する' do
-#         home_link = find_all('a')[1].native.inner_text
-#         home_link.gsub!(/\n/, '')
-#         click_link home_link
-#         is_expected.to eq '/'
-#       end
-#       it 'Aboutを押すと、How to share画面に遷移する' do
-#         about_link = find_all('a')[2].native.inner_text
-#         about_link = about_link.gsub(/\n/, '').gsub(/\A\s*/, '').gsub(/\s*\Z/, '')
-#         click_link about_link
-#         is_expected.to eq '/home/about'
-#       end
-#       it 'sign upを押すと、新規登録画面に遷移する' do
-#         signup_link = find_all('a')[3].native.inner_text
-#         signup_link = signup_link.gsub(/\n/, '').gsub(/\A\s*/, '').gsub(/\s*\Z/, '')
-#         click_link signup_link
-#         is_expected.to eq '/users/sign_up'
-#       end
-#       it 'loginを押すと、ログイン画面に遷移する' do
-#         login_link = find_all('a')[4].native.inner_text
-#         login_link = login_link.gsub(/\n/, '').gsub(/\A\s*/, '').gsub(/\s*\Z/, '')
-#         click_link login_link
-#         is_expected.to eq '/users/sign_in'
-#       end
-#     end
-  
+  describe 'ヘッダーのテスト: ログインしていない場合' do
+    before do
+      new_admin_session_path
+    end
 
 #   describe 'ユーザ新規登録のテスト' do
 #     before do
@@ -174,7 +123,7 @@ describe '管理人ログイン前のテスト' do
 #       it 'ログインボタンが表示される' do
 #         expect(page).to have_button 'ログイン'
 #       end
-      
+
 #     end
 
 #     context 'ログイン成功のテスト' do
@@ -217,7 +166,7 @@ describe '管理人ログイン前のテスト' do
 #         expect(page).to have_content 'word share'
 #       end
 #     end
-  
+
 
 #   describe 'ユーザログアウトのテスト' do
 #     let(:user) { create(:user) }
@@ -235,5 +184,5 @@ describe '管理人ログイン前のテスト' do
 #     end
 #   end
 #   end
-# end
+  end
 end
