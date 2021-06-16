@@ -23,6 +23,19 @@
    margin-top: 10%;
   }
   
+  .about_1{
+    background-image: image-url("about_1.png");
+  }
+  
+  .about_2{
+    background-image: image-url("about_2.png");
+  }
+  
+  .about_3{
+    background-image: image-url("about_3.png");
+  }
+  
+  
 // スマートフォンサイズ対応のため、レスポンシブ設定
   @media screen and (max-width:425px) {
    .picture {
