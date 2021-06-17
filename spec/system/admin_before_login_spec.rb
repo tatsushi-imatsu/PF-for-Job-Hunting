@@ -29,102 +29,31 @@ describe '管理人ログイン前のテスト' do
       new_admin_session_path
     end
 
-#   describe 'ユーザ新規登録のテスト' do
-#     before do
-#       visit new_user_registration_path
-#     end
+  describe '管理人ログイン' do
+    let(:admin) { create(:admin) }
 
-#     context '表示内容の確認' do
-#       it 'URLが正しい' do
-#         expect(current_path).to eq '/users/sign_up'
-#       end
-#       it '「JOIN」と表示される' do
-#         expect(page).to have_content 'JOIN'
-#       end
-#       it 'last_nameフォームが表示される' do
-#         expect(page).to have_field 'user[last_name]'
-#       end
-#       it 'first_nameフォームが表示される' do
-#         expect(page).to have_field 'user[first_name]'
-#       end
-#       it 'last_name_kanaフォームが表示される' do
-#         expect(page).to have_field 'user[last_name_kana]'
-#       end
-#       it 'first_name_kanaフォームが表示される' do
-#         expect(page).to have_field 'user[first_name_kana]'
-#       end
-#       it 'emailフォームが表示される' do
-#         expect(page).to have_field 'user[email]'
-#       end
-#       it 'passwordフォームが表示される' do
-#         expect(page).to have_field 'user[password]'
-#       end
-#       it 'password_confirmationフォームが表示される' do
-#         expect(page).to have_field 'user[password_confirmation]'
-#       end
-#       it 'Join!ボタンが表示される' do
-#         expect(page).to have_button 'Join!'
-#       end
-#     end
+    before do
+      visit new_admin_session_path
+    end
 
-#     context '新規登録成功のテスト' do
-#       before do
-#         fill_in 'user[last_name]', with: Faker::Lorem.characters(number: 10)
-#         fill_in 'user[first_name]', with: Faker::Lorem.characters(number: 10)
-#         fill_in 'user[last_name_kana]', with: Faker::Lorem.characters(number: 10)
-#         fill_in 'user[first_name_kana]', with: Faker::Lorem.characters(number: 10)
-#         fill_in 'user[email]', with: Faker::Internet.email
-#         fill_in 'user[password]', with: 'password'
-#         fill_in 'user[password_confirmation]', with: 'password'
-#       end
+    context '表示内容の確認' do
+      it 'URLが正しい' do
+        expect(current_path).to eq '/admins/sign_in'
+      end
+      it '「管理者ログイン」と表示される' do
+        expect(page).to have_content '管理者ログイン'
+      end
+      it 'emailフォームは表示される' do
+        expect(page).to have_field 'admin[email]'
+      end
+      it 'passwordフォームが表示される' do
+        expect(page).to have_field 'admin[password]'
+      end
+      it 'ログインボタンが表示される' do
+        expect(page).to have_button 'ログイン'
+      end
 
-#       it '正しく新規登録される' do
-#         expect { click_button 'Join!' }.to change(User.all, :count).by(1)
-#       end
-#       it '新規登録後のリダイレクト先が、投稿一覧になっている' do
-#         click_button 'Join!'
-#         expect(current_path).to eq '/posts'
-#       end
-#     end
-#   end
-
-#   describe 'ユーザログイン' do
-#     let(:user) { create(:user) }
-
-#     before do
-#       visit new_user_session_path
-#     end
-
-#     context '表示内容の確認' do
-#       it 'URLが正しい' do
-#         expect(current_path).to eq '/users/sign_in'
-#       end
-#       it '「LOG IN」と表示される' do
-#         expect(page).to have_content 'LOG IN'
-#       end
-#       it 'last_nameフォームが表示されない' do
-#         expect(page).not_to have_field 'user[last_name]'
-#       end
-#       it 'first_nameフォームが表示されない' do
-#         expect(page).not_to have_field 'user[first_name]'
-#       end
-#       it 'last_name_kanaフォームが表示されない' do
-#         expect(page).not_to have_field 'user[last_name_kana]'
-#       end
-#       it 'first_name_kanaフォームが表示されない' do
-#         expect(page).not_to have_field 'user[first_name_kana]'
-#       end
-#       it 'emailフォームは表示される' do
-#         expect(page).to have_field 'user[email]'
-#       end
-#       it 'passwordフォームが表示される' do
-#         expect(page).to have_field 'user[password]'
-#       end
-#       it 'ログインボタンが表示される' do
-#         expect(page).to have_button 'ログイン'
-#       end
-
-#     end
+    end
 
 #     context 'ログイン成功のテスト' do
 #       before do
@@ -183,6 +112,6 @@ describe '管理人ログイン前のテスト' do
 #       end
 #     end
 #   end
-#   end
+   end
   end
 end
