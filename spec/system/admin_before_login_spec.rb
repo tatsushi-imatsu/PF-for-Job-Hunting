@@ -55,30 +55,27 @@ describe '管理人ログイン前のテスト' do
 
     end
 
-#     context 'ログイン成功のテスト' do
-#       before do
-#         fill_in 'user[email]', with: user.email
-#         fill_in 'user[password]', with: user.password
-#         click_button 'ログイン'
-#       end
+    context 'ログイン成功のテスト' do
+      before do
+        fill_in 'admin[email]', with: admin.email
+        fill_in 'admin[password]', with: admin.password
+        click_button 'ログイン'
+        expect(current_path).to eq '/admins/users'
+      end
+    end
 
-#       it 'ログイン後のリダイレクト先が、投稿一覧画面になっている' do
-#         expect(current_path).to eq '/posts'
-#       end
-#     end
+    context 'ログイン失敗のテスト' do
+      before do
+        fill_in 'admin[email]', with: ''
+        fill_in 'admin[password]', with: ''
+        click_button 'ログイン'
+      end
 
-#     context 'ログイン失敗のテスト' do
-#       before do
-#         fill_in 'user[email]', with: ''
-#         fill_in 'user[password]', with: ''
-#         click_button 'ログイン'
-#       end
-
-#       it 'ログインに失敗し、ログイン画面にリダイレクトされる' do
-#         expect(current_path).to eq '/users/sign_in'
-#       end
-#     end
-#   end
+      it 'ログインに失敗し、ログイン画面にリダイレクトされる' do
+        expect(current_path).to eq '/admins/sign_in'
+      end
+    end
+  end
 
 #   describe 'ヘッダーのテスト: ログインしている場合' do
 #     let(:user) { create(:user) }
@@ -110,8 +107,6 @@ describe '管理人ログイン前のテスト' do
 #       it 'ログアウト後のリダイレクト先が、トップになっている' do
 #         expect(current_path).to eq '/'
 #       end
-#     end
 #   end
-   end
   end
 end
