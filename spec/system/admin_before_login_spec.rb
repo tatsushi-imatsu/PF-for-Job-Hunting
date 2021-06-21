@@ -60,6 +60,8 @@ describe '管理人ログイン前のテスト' do
         fill_in 'admin[email]', with: admin.email
         fill_in 'admin[password]', with: admin.password
         click_button 'ログイン'
+      end
+      it 'ログイン後、ユーザ一覧画面へ遷移する' do
         expect(current_path).to eq '/admins/users'
       end
     end
@@ -77,22 +79,27 @@ describe '管理人ログイン前のテスト' do
     end
   end
 
-#   describe 'ヘッダーのテスト: ログインしている場合' do
-#     let(:user) { create(:user) }
+  describe 'ヘッダーのテスト: ログインしている場合' do
+    let(:admin) { create(:admin) }
 
-#     before do
-#       visit new_user_session_path
-#       fill_in 'user[email]', with: user.email
-#       fill_in 'user[password]', with: user.password
-#       click_button 'ログイン'
-#     end
+    before do
+      visit new_admin_session_path
+      fill_in 'admin[email]', with: admin.email
+      fill_in 'admin[password]', with: admin.password
+      click_button 'ログイン'
+    end
 
-#     context 'ヘッダーの表示を確認' do
-#       it 'タイトルが表示される' do
-#         expect(page).to have_content 'word share'
-#       end
-#     end
-
+    context 'ヘッダーの表示を確認' do
+      it '会員一覧が表示される' do
+        expect(page).to have_content '会員一覧'
+      end
+      it '投稿地位欄が表示される' do
+        expect(page).to have_content '投稿一覧'
+      end
+      it 'ログアウトが表示される' do
+        expect(page).to have_content 'ログアウト'
+      end
+    end
 
 #   describe 'ユーザログアウトのテスト' do
 #     let(:user) { create(:user) }
@@ -107,6 +114,6 @@ describe '管理人ログイン前のテスト' do
 #       it 'ログアウト後のリダイレクト先が、トップになっている' do
 #         expect(current_path).to eq '/'
 #       end
-#   end
+    end
   end
 end
