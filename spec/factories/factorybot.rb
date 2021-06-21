@@ -12,4 +12,9 @@ FactoryBot.define do
     # メール認証をパスするための記述
     # confirmed_at { Date.today }
   end
+  factory :admin do
+    email { Faker::Internet.email }
+    password { password }
+    password_confirmation { password }
+  end
 end
