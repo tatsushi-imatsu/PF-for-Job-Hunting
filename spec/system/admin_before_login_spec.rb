@@ -101,19 +101,21 @@ describe '管理人ログイン前のテスト' do
       end
     end
 
-#   describe 'ユーザログアウトのテスト' do
-#     let(:user) { create(:user) }
+  describe '管理人ログアウトのテスト' do
+    let(:admin) { create(:admin) }
 
-#     before do
-#       logout_link = find_all('a')[3].native.inner_text
-#       logout_link = logout_link.gsub(/\n/, '').gsub(/\A\s*/, '').gsub(/\s*\Z/, '')
-#       click_link logout_link
-#     end
-
-#     context 'ログアウト機能のテスト' do
-#       it 'ログアウト後のリダイレクト先が、トップになっている' do
-#         expect(current_path).to eq '/'
-#       end
+    before do
+      logout_link = find_all('a')[3].native.inner_text
+      logout_link = logout_link.gsub(/\n/, '').gsub(/\A\s*/, '').gsub(/\s*\Z/, '')
+      click_link logout_link
     end
+
+    context 'ログアウト機能のテスト' do
+      it 'ログアウト後のリダイレクト先が、管理人ログイン画面になっている' do
+        expect(current_path).to eq '/admins/sign_in'
+      end
+    end
+   end
   end
+ end
 end
