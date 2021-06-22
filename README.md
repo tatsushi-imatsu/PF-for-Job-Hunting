@@ -1,4 +1,3 @@
-![pf_infra_sample](https://user-images.githubusercontent.com/79815224/122870286-6b963e00-d368-11eb-9d56-ea31adc639a0.jpg)
 # Word Share ~ word-sharing community ~
 
 ## サイト概要
