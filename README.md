@@ -1,3 +1,4 @@
+![pf_infra_sample](https://user-images.githubusercontent.com/79815224/122870286-6b963e00-d368-11eb-9d56-ea31adc639a0.jpg)
 # Word Share ~ word-sharing community ~
 
 ## サイト概要
@@ -63,7 +64,7 @@ https://docs.google.com/spreadsheets/d/1p1wmzeqmyB4RDidsBhm17kwPRrbDvbp1elCcvzbb
 - IDE：Cloud9
 
 ## インフラ構成図
-![architect_all](https://user-images.githubusercontent.com/79815224/120094347-c8804900-c15a-11eb-9e1a-22728f490889.jpg)<br><br>
+![pf_infra_sample](https://user-images.githubusercontent.com/79815224/122870303-7224b580-d368-11eb-9f66-beff4246145e.jpg)<br><br>
 その後、Github Actionsを使用してデプロイの自動化を設定しました。
 
 ## 使用素材
