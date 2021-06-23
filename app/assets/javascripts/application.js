@@ -20,10 +20,12 @@
 //= require_tree .
 //= require social-share-button 
 //= require owl.carousel
+
+
 $(function(){
   $("#hoge").t()
 });
-
+// タイピングjs
 
 $(function () {
   $("textarea").keyup(function(){
@@ -39,6 +41,7 @@ $(function () {
     }
   });
 });
+// 文字数カウントjs
 
 $(function() {
     var password  = '#js-password';
@@ -46,6 +49,7 @@ $(function() {
 
     changeInputtype(password, passcheck);
 });
+
 
 function changeInputtype(password, passcheck) {
     $(passcheck).change(function() {
@@ -56,3 +60,4 @@ function changeInputtype(password, passcheck) {
         }
     });
 }
+// パスワードjs
