@@ -4,8 +4,4 @@ class HomesController < ApplicationController
     @posts = Post.all
   end
 
-  def about
-
-  end
-
 end
