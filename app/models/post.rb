@@ -27,6 +27,7 @@ class Post < ApplicationRecord
 
   has_many :notifications, dependent: :destroy
 
+ # 投稿がいいねされた時の通知設定
   def create_notification_by(current_user)
     notification = current_user.active_notifications.new(
       post_id: id,
@@ -35,6 +36,7 @@ class Post < ApplicationRecord
     )
     notification.save if notification.valid?
   end
+ 
 
   def create_notification_post_comment!(current_user, post_comment_id)
     # 自分以外にコメントしている人をすべて取得し、全員に通知を送る
