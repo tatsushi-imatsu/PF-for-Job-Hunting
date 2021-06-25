@@ -28,7 +28,7 @@ class ApplicationController < ActionController::Base
     rescue_from ActionController::RoutingError, with: :render_404
   end
 
-# viewsでerrorディレクトリを作りそこに404.html.erb/505.html.erbを作成する
+# viewsに404.html.erb/505.html.erbを作成
   def render_404
     render template: 'errors/404', status: 404 
   end

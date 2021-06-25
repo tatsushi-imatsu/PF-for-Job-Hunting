@@ -1,10 +1,13 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
+  
   def index
     @posts = Post.all.page(params[:page]).per(5)
     @post = current_user
     @all_ranks = Post.find(Favorite.group(:post_id).order(Arel.sql('count(post_id) desc')).limit(3).pluck(:post_id))
+    # post_idの中でいいね多い順を上位３つ取り出します。
     @my_ranks = @all_ranks.select { |post| post.user_id == current_user.id }.take(3)
+    # ログインユーザの投稿でいいね多い順を上から３つ取得します。
   end
 
   def show
