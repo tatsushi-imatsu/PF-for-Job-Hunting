@@ -40,11 +40,13 @@ class UsersController < ApplicationController
 
   def followings
     @user = User.find(params[:id])
+    # フォローページング
     @users = @user.followings.all.page(params[:page]).per(5)
   end
 
   def followers
     @user = User.find(params[:id])
+    # フォロワーページング
     @users = @user.followers.all.page(params[:page]).per(5)
   end
 
