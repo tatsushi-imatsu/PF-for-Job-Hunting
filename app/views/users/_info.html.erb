@@ -54,9 +54,11 @@
     </th>
   </tr>
  </table><br>
+ <!--ログインユーザーのページの場合-->
   <% if user == current_user %>
     <%= link_to "プロフィール編集 Edit profile", edit_user_path(user), class: 'btn btn-outline-light rounded-pill' %>
     <%= link_to "退会する Quit", user_withdraw_path, class: "btn btn-outline-danger" %>
+ <!--通知確認していない場合、黄色のアイコンが表示される-->
   <% if unchecked_notifications.any? %>
     <i class="fa fa-circle" style="color: gold;"></i>
   <% end %>

@@ -5,8 +5,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates :last_name, presence: true
+  # 半角英数字のみバリデーション
   validates :last_name_kana, format: { with: /\A[a-z0-9]+\z/ }
   validates :first_name, presence: true
+  # 半角英数字のみバリデーション
   validates :first_name_kana, format: { with: /\A[a-z0-9]+\z/ }
   validates :introduction, length: { maximum: 100 }
   validates :email,
@@ -19,7 +21,7 @@ class User < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :posts, through: :favorites
 
-  # foreign_key（FK）には、@user.xxxとした際に「@user.idがfollower_idなのかfollowed_idなのか」を指定します。
+  # foreign_key（FK）には、@user.xxxとした際に「@user.idがfollower_idなのかfollowed_idなのか」を指定
   has_many :relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
   has_many :passive_relationships, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
   # @user.yyyで、そのユーザがフォローしている人orフォローされている人の一覧を出します。
