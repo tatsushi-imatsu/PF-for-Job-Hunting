@@ -63,6 +63,22 @@
           <div>
            <span id=countUp>0</span>文字
           </div>
+          <script>
+         $(function () {
+            $("textarea").keyup(function(){
+              var counter = $(this).val().length;
+              $("#countUp").text(counter);
+              if(counter == 0){
+                $("#countUp").text("0");
+              }
+              if(counter >= 100){
+                $("#countUp").css("color","red");
+              } else {
+                $("#countUp").css("color","white");
+              }
+            });
+          });
+          </script>
          <%= f.text_area :comment, rows:'2',placeholder: "コメント100文字以内", size: "30x2" %><br>
          <%= f.submit "送信する", class: 'btn btn-outline-light btn-sm rounded-pill' %>
         <% end %>
