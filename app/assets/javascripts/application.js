@@ -21,8 +21,6 @@
 //= require social-share-button
 //= require owl.carousel
 
-console.log("hoge")
-
 $(function(){
   $("#hoge").t()
 });

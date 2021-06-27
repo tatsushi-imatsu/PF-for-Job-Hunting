@@ -6,8 +6,43 @@
     <%= csp_meta_tag %>
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script>
+      $(function () {
+  $("textarea").keyup(function(){
+    var counter = $(this).val().length;
+    $("#countUp").text(counter);
+    if(counter == 0){
+      $("#countUp").text("0");
+    }
+    if(counter >= 100){
+      $("#countUp").css("color","red");
+    } else {
+      $("#countUp").css("color","white");
+    }
+  });
+});
+// 文字数カウントjs
 
+$(function() {
+    var password  = '#js-password';
+    var passcheck = '#js-passcheck';
+
+    changeInputtype(password, passcheck);
+});
+
+
+function changeInputtype(password, passcheck) {
+    $(passcheck).change(function() {
+        if ($(this).prop('checked')) {
+            $(password).attr('type','text');
+        } else {
+            $(password).attr('type','password');
+        }
+    });
+}
+// パスワードjs
+    </script>
   </head>
 
   <body>
