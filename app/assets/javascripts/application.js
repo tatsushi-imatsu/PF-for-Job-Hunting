@@ -18,8 +18,8 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
-//= require social-share-button 
-// require owl.carousel
+//= require social-share-button
+//= require owl.carousel
 
 
 $(function(){
