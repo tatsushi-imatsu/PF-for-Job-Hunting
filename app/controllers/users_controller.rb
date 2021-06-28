@@ -17,6 +17,7 @@ class UsersController < ApplicationController
     reset_session
     flash[:notice] = "ありがとうございました。またのご利用を心よりお待ちしております。"
     NotificationMailer.send_confirm_to_user(@user).deliver
+    # 退会した際のユーザーへ通知メール
     redirect_to root_path
   end
 
@@ -40,13 +41,11 @@ class UsersController < ApplicationController
 
   def followings
     @user = User.find(params[:id])
-    # フォローページング
     @users = @user.followings.all.page(params[:page]).per(5)
   end
 
   def followers
     @user = User.find(params[:id])
-    # フォロワーページング
     @users = @user.followers.all.page(params[:page]).per(5)
   end
 
