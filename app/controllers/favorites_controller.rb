@@ -4,6 +4,7 @@ class FavoritesController < ApplicationController
     favorite = current_user.favorites.new(post_id: @post.id)
     favorite.save
     @post.create_notification_by(current_user)
+    # いいね通知
     redirect_to post_path(@post)
   end
 
