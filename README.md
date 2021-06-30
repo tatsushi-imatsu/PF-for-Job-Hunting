@@ -28,7 +28,7 @@ SNSサイトとして、コミュニティを形成出来るサイトとなっ�
 ## 設計書
 
 ### ER 図 ・フレームワーク
-https://drive.google.com/file/d/1c2kzKYyu3rY8TD4TYxdWG4sLSQUa-7v1/view?usp=sharing
+https://drive.google.com/file/d/1h16XHT7Fgpacj8SyH1sxWbn2-oLbqjdq/view?usp=sharing
 
 ### DBテーブル一覧・アプリケーション詳細設計（導入したGemも記載）
 https://drive.google.com/file/d/1_-IBkZtTZt4xw4hNAKVuZCsIR6ugVWhp/view?usp=sharing
