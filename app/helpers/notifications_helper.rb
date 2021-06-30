@@ -2,7 +2,7 @@ module NotificationsHelper
   def notification_form(notification)
     @visiter = notification.visiter
     @post_comment = nil
-    # notification.actionがfollowかlikeかcommentか
+    # notification.actionがfollowかfavoriteかpost_commentかchat
     case notification.action
     when "follow"
       tag.a(notification.visiter.last_name_kana + notification.visiter.first_name_kana, href: user_path(@visiter), style: "font-weight: bold;") + "があなたをフォローしました"
