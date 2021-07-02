@@ -63,7 +63,9 @@ class User < ApplicationRecord
   end
 
   has_many :active_notifications, class_name: 'Notification', foreign_key: 'visiter_id', dependent: :destroy
+  # 自分が作った通知　visiter_idを参考にactive_notificationsモデルへアクセスする
   has_many :passive_notifications, class_name: 'Notification', foreign_key: 'visited_id', dependent: :destroy
+  # 自分宛の通知 visited_idを参考にpassive_notificationsモデルへアクセスする
 
   # フォロー時の通知
   def create_notification_follow!(current_user)
