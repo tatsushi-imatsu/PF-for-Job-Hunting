@@ -1,9 +1,13 @@
 class ChatsController < ApplicationController
   def show
+    # どのユーザーとチャットするかを取得。
     @user = User.find(params[:id])
-    # ログインしているユーザーのidが入ったroom_idのみを配列で取得（該当するroom_idが複数でも全て取得）
+    # カレントユーザーのuser_roomにあるroom_idの値の配列をroomsに代入。
     rooms = current_user.user_rooms.pluck(:room_id)
-    # user_idが@user　且つ　room_idが上で取得したrooms配列の中にある数値のもののみ取得(1個または0個のはずです)
+    # user_roomモデルから
+      # user_idがチャット相手のidが一致するものと、
+      # room_idが上記roomsのどれかに一致するレコードを
+      # user_roomsに代入。
     user_rooms = UserRoom.find_by(user_id: @user.id, room_id: rooms)
 
     if user_rooms.nil? # 上記で取得できなかった場合の処理
@@ -28,6 +32,7 @@ class ChatsController < ApplicationController
     @chat = current_user.chats.new(chat_params)
     @chat.save
     @chat.create_notification_chat!(current_user)
+    # チャットの通知
   end
 
   private
