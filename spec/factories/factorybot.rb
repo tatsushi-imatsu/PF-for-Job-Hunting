@@ -17,4 +17,16 @@ FactoryBot.define do
     password { password }
     password_confirmation { password }
   end
+  FactoryBot.define do
+  factory :post do
+    name { Faker::Lorem.characters(number: 5) }
+    body { Faker::Lorem.characters(number: 20) }
+    user
+  end
+end
+  factory :post_comment do
+    association :post
+    user { post.user }
+    comment { Faker::Lorem.characters(number: 20) }
+  end
 end
