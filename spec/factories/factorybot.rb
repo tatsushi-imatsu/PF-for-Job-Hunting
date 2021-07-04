@@ -29,4 +29,8 @@ end
     user { post.user }
     comment { Faker::Lorem.characters(number: 20) }
   end
+  factory :favorite do
+    association :post
+    user { post.user }
+  end
 end
