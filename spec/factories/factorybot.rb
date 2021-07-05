@@ -33,4 +33,13 @@ end
     association :post
     user { post.user }
   end
+  factory :chat do
+    association :user
+    user { chat.user }
+    sentence { Faker::Lorem.characters(number: 20) }
+  end
+  factory :room do
+    association :chat
+    user { room.chat }
+  end
 end
