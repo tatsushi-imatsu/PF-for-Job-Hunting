@@ -23,14 +23,18 @@ describe 'post_commentモデルのテスト' do
         expect(PostComment.reflect_on_association(:user).macro).to eq :belongs_to
       end
     end
-  # context 'commentカラム' do
+  context 'commentカラム' do
   #     it '100文字以下であること: 99文字は〇' do
-  #       comment = Faker::Lorem.characters(number: 99)
-  #       is_expected.to eq true
+  #       user = FactoryBot.create(:user)
+  #       # post = Post.new(name: "テスト", body: "テストです。", user_id: user.id)
+  #       post_comment = PostComment.new(comment: "a" * 99, user_id: user.id)
+  #       expect(post_comment).to be_valid
   #     end
-  #     it '100文字以下であること: 101文字は×' do
-  #       comment = Faker::Lorem.characters(number: 101)
-  #       is_expected.to eq false
-  #     end
+      it '100文字以下であること: 101文字は×' do
+        user = FactoryBot.create(:user)
+        post_comment = PostComment.new(comment: "a" * 101, user_id: user.id)
+        expect(post_comment).to be_invalid
+      end
   end
+ end
 end

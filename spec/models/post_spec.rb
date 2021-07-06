@@ -2,6 +2,8 @@
 
 require 'rails_helper'
 
+RSpec.describe Post, type: :model do
+
 describe 'postモデルのテスト' do
 
   it "postの登録内容の場合は保存されるか" do
@@ -19,5 +21,8 @@ describe 'postモデルのテスト' do
     post = Post.new(name: "テスト", body: "", user_id: user.id)
     expect(post).to be_invalid
   end
-
+  it 'UserモデルとN:1となっている' do
+    expect(Post.reflect_on_association(:user).macro).to eq :belongs_to
+  end
+ end
 end
