@@ -9,6 +9,7 @@
      <%= f.label :is_deleted, "有効" %>
      <%= f.radio_button :is_deleted, true %>
      <%= f.label :is_deleted, "退会" %><br><br>
+     <!--デフォルトがfalseの会員有効-->
      <%= f.submit "ステータスを保存", class: "btn btn-success"%>
   <% end %>
  </div>
