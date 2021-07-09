@@ -42,4 +42,9 @@ end
     association :chat
     user { room.chat }
   end
+  factory :inquiry do
+    name { Faker::Lorem.characters(number: 5) }
+    email { Faker::Internet.email }
+    message { Faker::Lorem.characters(number: 10) }
+  end
 end
