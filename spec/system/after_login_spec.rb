@@ -18,6 +18,7 @@ RSpec.describe "AfterLogins", type: :system do
     end
 
     describe 'ログイン後: ヘッダーのテスト' do
+        
       # context '表示内容' do
         it 'word shareロゴが表示される' do
           expect(page).to have_content 'word share'
@@ -27,49 +28,49 @@ RSpec.describe "AfterLogins", type: :system do
           mypage_link = find_all('a')[1].native.inner_text
           expect(mypage_link).to match "My page マイページ"
         end
-
+        # it 'Mypageを押すと、Mypage画面に遷移する' do
+        # mypage_link = find_all('a')[1].native.inner_text
+        # mypage_link.gsub!(/\n/, '')
+        # click_link mypage_link
+        # is_expected.to eq '/users/:id'
+        end
         it 'Share words:ハンバーガーメニュー上から2番目のリンク' do
           sharewords_link = find_all('a')[2].native.inner_text
           expect(sharewords_link).to match "Share  words 単語を共有しよう"
         end
-
+        # it 'Share wordsを押すと、Share words画面に遷移する' do
+        # sharewords_link = find_all('a')[2].native.inner_text
+        # sharewords_link.gsub!(/\n/, '')
+        # click_link sharewords_link
+        # is_expected.to eq '/posts'
+        # end
         it 'Log out:ハンバーガーメニュー上から3番目のリンク' do
           logout_link = find_all('a')[3].native.inner_text
           expect(logout_link).to match "Log out ログアウト"
         end
+        
+        context '表示の確認' do
+
+          it '言葉フォームが表示される' do
+          expect(page).to have_field 'post_name'
+          end
+
+          it '意味・説明フォームが表示される' do
+          expect(page).to have_field 'post_body'
+          end
+
+          it 'Shareボタンが表示されている' do
+          expect(page).to have_button 'Share!'
+          end
       end
     end
 
-    # describe '質問投稿のテスト' do
-    #   before do
-    #     visit new_question_path
-    #   end
-
-    #   context '表示の確認' do
-    #     it 'URLが正しい' do
-    #       expect(current_path).to eq new_question_path
+    #   context '投稿処理のテスト' do
+    #     it '投稿後のリダイレクト先は正しいか' do
+    #       fill_in 'post_name', with: Faker::Lorem.characters(number: 5)
+    #       fill_in 'post_body', with: Faker::Lorem.characters(number: 20)
+    #       click_button 'Share!'
+    #       expect(current_path).to eq posts_path
     #     end
-
-    #     it 'タイトルフォームが表示される' do
-    #       expect(page).to have_field 'question[title]'
-    #     end
-
-    #     it '質問内容フォームが表示される' do
-    #       expect(page).to have_field 'question[content]'
-    #     end
-
-    #     it '質問するボタンが表示されている' do
-    #       expect(page).to have_button '質問する'
-    #     end
-    #   end
-
-      # context '投稿処理のテスト' do
-      #   it '投稿後のリダイレクト先は正しいか' do
-      #     fill_in 'question[title]', with: Faker::Lorem.characters(number: 5)
-      #     fill_in 'question[content]', with: Faker::Lorem.characters(number: 20)
-      #     click_button '質問する'
-      #     expect(current_path).to eq question_path(id: 1)
-      #   end
-      # end
     # end
   end
