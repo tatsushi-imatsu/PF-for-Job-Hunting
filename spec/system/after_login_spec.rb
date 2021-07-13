@@ -18,7 +18,7 @@ RSpec.describe "AfterLogins", type: :system do
     end
 
     describe 'ログイン後: ヘッダーのテスト' do
-        
+
       # context '表示内容' do
         it 'word shareロゴが表示される' do
           expect(page).to have_content 'word share'
@@ -48,8 +48,12 @@ RSpec.describe "AfterLogins", type: :system do
           logout_link = find_all('a')[3].native.inner_text
           expect(logout_link).to match "Log out ログアウト"
         end
-        
+
         context '表示の確認' do
+          
+          it '言葉をシェアして繋がりましょう！が表示される' do
+          expect(page).to have_content '言葉をシェアして繋がりましょう！'
+          end
 
           it '言葉フォームが表示される' do
           expect(page).to have_field 'post_name'
@@ -61,6 +65,21 @@ RSpec.describe "AfterLogins", type: :system do
 
           it 'Shareボタンが表示されている' do
           expect(page).to have_button 'Share!'
+          end
+          it '総合ランキングが表示される' do
+          expect(page).to have_content "総合ランキング"
+          end
+          # it '総合ランキング:No.が表示される' do
+          # expect(page).to have_text "No."
+          # end
+          # it '総合ランキング：いいね数が表示される' do
+          # expect(page).to have_content "いいね数"
+          # end
+          it 'マイランキング：と表示される' do
+          expect(page).to have_content "マイランキング"
+          end
+          it 'お問い合わせボタンが表示されている' do
+          expect(page).to have_content 'お問い合わせ'
           end
       end
     end
