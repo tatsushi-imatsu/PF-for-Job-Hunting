@@ -32,7 +32,8 @@ RSpec.describe "AfterLogins", type: :system do
         # mypage_link = find_all('a')[1].native.inner_text
         # mypage_link.gsub!(/\n/, '')
         # click_link mypage_link
-        # is_expected.to eq '/users/:id'
+        # is_expected.to eq '/users/' + user.id.to_s
+        # end
         end
         it 'Share words:ハンバーガーメニュー上から2番目のリンク' do
           sharewords_link = find_all('a')[2].native.inner_text
