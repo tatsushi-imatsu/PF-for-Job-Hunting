@@ -41,12 +41,12 @@ class UsersController < ApplicationController
 
   def followings
     @user = User.find(params[:id])
-    @users = @user.followings.all.page(params[:page]).per(5)
+    @users = @user.followings.all.page(params[:page]).per(6)
   end
 
   def followers
     @user = User.find(params[:id])
-    @users = @user.followers.all.page(params[:page]).per(5)
+    @users = @user.followers.all.page(params[:page]).per(6)
   end
 
   def ensure_correct_user
