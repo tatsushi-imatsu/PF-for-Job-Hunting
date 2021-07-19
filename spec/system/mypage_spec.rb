@@ -37,15 +37,15 @@ describe 'Mypageのテスト', type: :system do
     it "マイページにINTRODUCTIONが表示されている" do
     expect(page).to have_content 'I N T R O D U C T I O N'
     end
-    it "マイページにfuser.introductionが表示されている" do
+    it "マイページにuser.introductionが表示されている" do
     expect(page).to have_content user.introduction
     end
     it "マイページにフォローしている人数 〜Your following〜が表示されている" do
     expect(page).to have_content 'フォローしている人数 〜Your following〜'
     end
-    it "マイページに※チャット可能 〜Chat available〜   が表示されている" do
-    expect(page).to have_content '※チャット可能 〜Chat available〜'
-    end
+    # it "マイページに※チャット可能 〜Chat available〜   が表示されている" do
+    # expect(page).to have_content '※チャット可能 〜Chat available〜'
+    # end
     it "マイページにフォローされている人数 〜Your followers〜が表示されている" do
     expect(page).to have_content 'フォローされている人数 〜Your followers〜'
     end
