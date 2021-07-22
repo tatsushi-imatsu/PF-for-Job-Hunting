@@ -35,16 +35,15 @@ describe '問い合わせのテスト' do
     end
 end
 
-describe '問い合わせ（確認画面）のテスト', type: :system do
-   let(:inquiry) { create(:inquiry) }
-    before do
-      visit inquiry_path
-      fill_in 'inquiry[name]', with: inquiry.name
-      fill_in 'inquiry[email]', with: inquiry.email
-      fill_in 'inquiry[message]', with: inquiry.message
-    end
-    it "問い合わせ確認画面へ遷移する" do
-      click_button '確認'
-      expect(current_path).to eq '/inquiry/confirm'
-      end
-end
+# describe '問い合わせ（確認画面）のテスト' do
+#     before do
+#       visit inquiry_path
+#     end
+#     it '正しく確認画面へ移行する' do
+#       fill_in 'name', with: name
+#       fill_in 'email', with: email
+#       fill_in 'message', with: message
+#       expect { click_button '確認' }.to change(inquiry.all, :count).by(1)
+#       expect(current_path).to eq '/inquiry/confirm'
+#     end
+# end

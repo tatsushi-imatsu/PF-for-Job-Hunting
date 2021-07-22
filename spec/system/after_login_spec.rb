@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe "AfterLogins", type: :system do
   describe 'ログイン後のテスト' do
     let(:user) { create(:user) }
-
+   
     before do
       visit new_user_session_path
       fill_in 'user[email]', with: user.email
@@ -51,7 +51,7 @@ RSpec.describe "AfterLogins", type: :system do
         end
 
         context '表示の確認' do
-          
+
           it '言葉をシェアして繋がりましょう！が表示される' do
           expect(page).to have_content '言葉をシェアして繋がりましょう！'
           end
@@ -85,12 +85,5 @@ RSpec.describe "AfterLogins", type: :system do
       end
     end
 
-    #   context '投稿処理のテスト' do
-    #     it '投稿後のリダイレクト先は正しいか' do
-    #       fill_in 'post_name', with: Faker::Lorem.characters(number: 5)
-    #       fill_in 'post_body', with: Faker::Lorem.characters(number: 20)
-    #       click_button 'Share!'
-    #       expect(current_path).to eq posts_path
-    #     end
-    # end
+      
   end
