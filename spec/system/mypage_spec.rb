@@ -71,10 +71,40 @@ describe 'Mypageのテスト', type: :system do
     # click_link users_link
     # expect(page).to have_link "post_path(post)", href: '/posts/'
     # end
+
   end
 end
 
 end
 
-
-# プロフィール編集 Edit profile 退会する Quit 通知 NOTICE\n◆ n2u3hn2cbt 6ne1tpp6b0 がいいねした Words 〜 my favorite words〜\nお
+describe 'Mypage編集のテスト', type: :system do
+  let(:user) { create(:user) }
+  before do
+    visit new_user_session_path
+    fill_in 'user[email]', with: user.email
+    fill_in 'user[password]', with: user.password
+    click_button 'ログイン'
+    mypage_link = find_all('a')[1].native.inner_text
+    mypage_link.gsub!(/\n/, '')
+    click_link mypage_link
+    is_expected.to eq '/users/' + user.id.to_s
+    click_link 'プロフィール編集 Edit profile'
+  end
+  describe 'プロフィール編集' do
+  context '更新成功のテスト' do
+    subject { current_path }
+      it '画像編集フォームが表示される' do
+        expect(page).to have_field 'user[image]'
+      end
+      it 'introductionが正しく更新される' do
+       fill_in 'user[introduction]', with: Faker::Lorem.characters(number: 19)
+       click_button '保存'
+      end
+      it 'リダイレクト先が、自分のユーザ詳細画面になっている' do
+        click_button '保存'
+        expect(current_path).to eq '/users/' + user.id.to_s
+      end
+    end
+  end
+end
+# 次は、名前も項目追加する

@@ -9,6 +9,7 @@ FactoryBot.define do
     first_name { Faker::Lorem.characters(number: 10) }
     last_name_kana { Faker::Lorem.characters(number: 10) }
     first_name_kana { Faker::Lorem.characters(number: 10) }
+    introduction { Faker::Lorem.characters(number: 10) }
     # メール認証をパスするための記述
     # confirmed_at { Date.today }
   end
