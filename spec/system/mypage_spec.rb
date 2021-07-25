@@ -92,12 +92,14 @@ describe 'Mypage編集のテスト', type: :system do
     mypage_link = find_all('a')[1].native.inner_text
     mypage_link.gsub!(/\n/, '')
     click_link mypage_link
-    # is_expected.to eq '/users/' + user.id.to_s
     click_link 'プロフィール編集 Edit profile'
   end
   describe 'プロフィール編集' do
   context '更新成功のテスト' do
     subject { current_path }
+      it 'URLが正しい' do
+      expect(current_path).to eq '/users/' + User.last.id.to_s + '/edit'
+      end
       it "ユーザ情報編集 〜 Edit my profile 〜が表示されている" do
       expect(page).to have_content "ユーザ情報編集 〜 Edit my profile 〜"
       end
@@ -128,8 +130,14 @@ describe 'Mypage編集のテスト', type: :system do
       it "紹介文が表示されている" do
       expect(page).to have_content "紹介文"
       end
-      it 'introductionが正しく更新される' do
+      it 'introductionが表示される' do
       expect(page).to have_field 'user[introduction]'
+      end
+      it 'introductionに値が入っていない' do
+      expect(find_field('user[introduction]').text).to be_blank
+      end
+      it "0文字が表示されている" do
+      expect(page).to have_content "0文字"
       end
       it "プロフィール画像が表示されている" do
       expect(page).to have_content "プロフィール画像"
@@ -144,10 +152,10 @@ describe 'Mypage編集のテスト', type: :system do
       fill_in 'user[introduction]', with: Faker::Lorem.characters(number: 19)
       click_button '保存'
       end
-      # it 'リダイレクト先が、自分のユーザ詳細画面になっている' do
-      #   click_button '保存'
-      #   expect(current_path).to eq '/users/' + user.last.id.to_s
-      # end
+      it '更新後の遷移先URLが正しい' do
+      click_button '保存'
+      expect(current_path).to eq '/users/' + User.last.id.to_s
+      end
     end
   end
 end
