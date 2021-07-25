@@ -86,7 +86,7 @@ describe 'ユーザログイン前のテスト' do
         is_expected.to eq '/users/sign_in'
       end
     end
-  
+
 
   describe 'ユーザ新規登録のテスト' do
     before do
@@ -182,7 +182,7 @@ describe 'ユーザログイン前のテスト' do
       it 'ログインボタンが表示される' do
         expect(page).to have_button 'ログイン'
       end
-      
+
     end
 
     context 'ログイン成功のテスト' do
@@ -225,7 +225,7 @@ describe 'ユーザログイン前のテスト' do
         expect(page).to have_content 'word share'
       end
     end
-  
+
 
   describe 'ユーザログアウトのテスト' do
     let(:user) { create(:user) }
