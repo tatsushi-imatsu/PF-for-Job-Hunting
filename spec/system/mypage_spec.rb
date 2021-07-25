@@ -99,26 +99,50 @@ describe 'Mypage編集のテスト', type: :system do
   context '更新成功のテスト' do
     subject { current_path }
       it "ユーザ情報編集 〜 Edit my profile 〜が表示されている" do
-      expect(page).to have_content 'ユーザ情報編集 〜 Edit my profile 〜'
+      expect(page).to have_content "ユーザ情報編集 〜 Edit my profile 〜"
       end
-      it '画像編集フォームが表示される' do
-        expect(page).to have_field 'user[image]'
+      it "名前　姓が表示されている" do
+      expect(page).to have_content "名前　姓"
       end
       it 'last_nameが表示される' do
-        expect(page).to have_field 'user[last_name]'
+      expect(page).to have_field 'user[last_name]'
+      end
+      it "名が表示されている" do
+      expect(page).to have_content "名"
       end
       it 'first_nameが表示される' do
-        expect(page).to have_field 'user[first_name]'
+      expect(page).to have_field 'user[first_name]'
+      end
+      it "ローマ字（半角）姓が表示されている" do
+      expect(page).to have_content "ローマ字（半角）姓"
       end
       it 'last_name_kanaが表示される' do
-        expect(page).to have_field 'user[last_name_kana]'
+      expect(page).to have_field 'user[last_name_kana]'
+      end
+      it "ローマ字（半角）名 が表示されている" do
+      expect(page).to have_content "ローマ字（半角）名"
       end
       it 'first_name_kanaが表示される' do
-        expect(page).to have_field 'user[first_name_kana]'
+      expect(page).to have_field 'user[first_name_kana]'
+      end
+      it "紹介文が表示されている" do
+      expect(page).to have_content "紹介文"
       end
       it 'introductionが正しく更新される' do
-       fill_in 'user[introduction]', with: Faker::Lorem.characters(number: 19)
-       click_button '保存'
+      expect(page).to have_field 'user[introduction]'
+      end
+      it "プロフィール画像が表示されている" do
+      expect(page).to have_content "プロフィール画像"
+      end
+      it '画像編集フォームが表示される' do
+      expect(page).to have_field 'user[image]'
+      end
+      it '保存ボタンが表示されている' do
+      expect(page).to have_button '保存'
+      end
+      it 'introductionが正しく更新される' do
+      fill_in 'user[introduction]', with: Faker::Lorem.characters(number: 19)
+      click_button '保存'
       end
       # it 'リダイレクト先が、自分のユーザ詳細画面になっている' do
       #   click_button '保存'
