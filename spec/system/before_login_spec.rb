@@ -1,5 +1,6 @@
 describe 'ユーザログイン前のテスト' do
   describe 'トップ画面のテスト' do
+    let(:post) { create(:post) }
     before do
       visit root_path
     end
@@ -24,6 +25,24 @@ describe 'ユーザログイン前のテスト' do
         sign_up_link = find_all('a')[3].native.inner_text
         expect(page).to have_link sign_up_link, href: new_user_registration_path
       end
+      it 'Word Share!が表示される' do
+        expect(page).to have_content "Word Share!"
+      end
+      it '〜 Words Sharing Community 〜が表示される' do
+        expect(page).to have_content "〜 Words Sharing Community 〜"
+      end
+      it 'Words tweeting 言葉をつぶやいた後 が表示される' do
+        expect(page).to have_content "Words tweeting 言葉をつぶやいた後"
+      end
+      it 'Sharing with words 共有することで が表示される' do
+        expect(page).to have_content "Sharing with words 共有することで"
+      end
+      it 'Communication 交流しましょう！! が表示される' do
+        expect(page).to have_content "Communication 交流しましょう！!"
+      end
+      # it 'post.nameが表示される' do
+      #   expect(page).to have_content post.name
+      # end
     end
   end
 
