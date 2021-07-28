@@ -11,16 +11,17 @@ describe '投稿処理のテスト', type: :system do
         click_button 'ログイン'
         end
         context '投稿内容登録確認' do
+        subject { current_path }
         it '投稿が正しく保存される' do
            fill_in 'post[name]', with: Faker::Lorem.characters(number: 5)
            fill_in 'post[body]', with: Faker::Lorem.characters(number: 20)
            expect { click_button 'Share!' }.to change(Post.all, :count).by(1)
         end
         # it '投稿した単語が表示される' do
-        #   fill_in 'post[name]', with: Faker::Lorem.characters(number: 5)
-        #   fill_in 'post[body]', with: Faker::Lorem.characters(number: 20)
-        #   expect { click_button 'Share!' }.to change(Post.all, :count).by(1)
-        #   expect(page).to have_content post.name(1)
+        #    fill_in 'post[name]', with: Faker::Lorem.characters(number: 5)
+        #    fill_in 'post[body]', with: Faker::Lorem.characters(number: 20)
+        #    click_button 'Share!'
+        #    expect(page).to have_content Post.all
         # end
         end
 end

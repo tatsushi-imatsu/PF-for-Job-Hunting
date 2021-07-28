@@ -61,17 +61,9 @@ describe 'Mypageのテスト', type: :system do
     it '通知URLが正しい' do
     expect(page).to have_link "", href: notifications_path
     end
-    # it 'フォローするボタンが表示されている' do
-    # expect(page).to have_button 'フォローする'
-    # end
     it "マイページに がいいねした Words 〜 my favorite words〜" do
     expect(page).to have_content 'がいいねした Words 〜 my favorite words〜'
     end
-    # it '投稿詳細URLが正しい' do
-    # click_link users_link
-    # expect(page).to have_link "post_path(post)", href: '/posts/'
-    # end
-
   end
 end
 
