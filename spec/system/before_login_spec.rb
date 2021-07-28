@@ -40,9 +40,6 @@ describe 'ユーザログイン前のテスト' do
       it 'Communication 交流しましょう！! が表示される' do
         expect(page).to have_content "Communication 交流しましょう！!"
       end
-      # it 'post.nameが表示される' do
-      #   expect(page).to have_content post.name
-      # end
     end
   end
 
@@ -54,6 +51,15 @@ describe 'ユーザログイン前のテスト' do
     context '表示内容の確認' do
       it 'URLが正しい' do
         expect(current_path).to eq '/home/about'
+      end
+      it '左上ロゴと画像が表示される' do
+      expect(all('img').size).to eq(4)
+      end
+      it 'Word Shareの使い方〜How to use〜が表示される' do
+        expect(page).to have_content "Word Shareの使い方〜How to use〜"
+      end
+      it '言葉と意味をセットで投稿できます。総合ランキングでは全体のいいね数が多い順番で表示されます。' do
+        expect(page).to have_content "言葉と意味をセットで投稿できます。総合ランキングでは全体のいいね数が多い順番で表示されます。"
       end
     end
   end
