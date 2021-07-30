@@ -17,14 +17,32 @@ describe '問い合わせのテスト' do
       it "（必須）が表示されている" do
       expect(page).to have_content '（必須）'
       end
+      it 'nameフォームが表示される' do
+      expect(page).to have_field 'inquiry[name]'
+      end
+      it 'nameに値が入っていない' do
+      expect(find_field('inquiry[name]').text).to be_blank
+      end
       it "メールアドレスが表示されている" do
       expect(page).to have_content 'メールアドレス'
       end
       it "（必須）が表示されている" do
       expect(page).to have_content '（必須）'
       end
+      it 'emailフォームが表示される' do
+      expect(page).to have_field 'inquiry[email]'
+      end
+      it 'emailに値が入っていない' do
+      expect(find_field('inquiry[email]').text).to be_blank
+      end
       it "内容（5文字以上入力してください。）が表示されている" do
       expect(page).to have_content '内容（5文字以上入力してください。）'
+      end
+      it 'messageフォームが表示される' do
+      expect(page).to have_field 'inquiry[message]'
+      end
+      it 'messageに値が入っていない' do
+      expect(find_field('inquiry[message]').text).to be_blank
       end
       it '確認ボタンが表示される' do
       expect(page).to have_button '確認'
