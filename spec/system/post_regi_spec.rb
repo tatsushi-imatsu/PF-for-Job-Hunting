@@ -56,10 +56,17 @@ end
       it '0文字が表示される' do
         expect(page).to have_content '0文字'
       end
-#       it '投稿の編集リンクが表示される' do
-#         expect(page).to have_link 'Edit', href: edit_book_path(book)
-#       end
-#       it '投稿の削除リンクが表示される' do
-#         expect(page).to have_link 'Destroy', href: book_path(book)
+      it "post.nameが表示されている" do
+        expect(page).to have_content post.name
+      end
+      it "post.bodyが表示されている" do
+        expect(page).to have_content post.body
+      end
+      it '左上ロゴと自分の画像が表示される' do
+      expect(all('img').size).to eq(2)
+      end
+      it '送信するボタンが表示されている' do
+        expect(page).to have_button '送信する'
+      end
       end
     end
