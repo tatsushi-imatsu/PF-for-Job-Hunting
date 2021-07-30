@@ -50,6 +50,12 @@ end
       it 'Shared byが表示される' do
         expect(page).to have_content 'Shared by'
       end
+      it "post.user.last_name_kanaが表示されている" do
+        expect(page).to have_content post.user.last_name_kana
+      end
+      it "post.user.first_name_kanaが表示されている" do
+        expect(page).to have_content post.user.first_name_kana
+      end
       it 'コメント件数：が表示される' do
         expect(page).to have_content 'コメント件数：'
       end
@@ -62,9 +68,17 @@ end
       it "post.bodyが表示されている" do
         expect(page).to have_content post.body
       end
+      # it '編集するURLが正しい' do
+      #   click_link edit_post_path(post)
+      #   expect(current_path).to eq '/posts/' + Post.last.id.to_s + '/edit'
+      # end
+      # it '削除するURLが正しい' do
+      #   expect(page).to have_link "", href: post_path(post)
+      # end
       it '左上ロゴと自分の画像が表示される' do
       expect(all('img').size).to eq(2)
       end
+
       it '送信するボタンが表示されている' do
         expect(page).to have_button '送信する'
       end
