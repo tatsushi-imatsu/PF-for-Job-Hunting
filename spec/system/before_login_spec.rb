@@ -128,23 +128,44 @@ describe 'ユーザログイン前のテスト' do
       it 'last_nameフォームが表示される' do
         expect(page).to have_field 'user[last_name]'
       end
+      it 'last_nameフォームに値が入っていない' do
+        expect(find_field('user[last_name]').text).to be_blank
+      end
       it 'first_nameフォームが表示される' do
         expect(page).to have_field 'user[first_name]'
+      end
+      it 'first_nameフォームに値が入っていない' do
+        expect(find_field('user[first_name]').text).to be_blank
       end
       it 'last_name_kanaフォームが表示される' do
         expect(page).to have_field 'user[last_name_kana]'
       end
+      it 'last_name_kanaフォームに値が入っていない' do
+        expect(find_field('user[last_name_kana]').text).to be_blank
+      end
       it 'first_name_kanaフォームが表示される' do
         expect(page).to have_field 'user[first_name_kana]'
+      end
+      it 'first_name_kanaフォームに値が入っていない' do
+        expect(find_field('user[first_name_kana]').text).to be_blank
       end
       it 'emailフォームが表示される' do
         expect(page).to have_field 'user[email]'
       end
+      it 'emailフォームに値が入っていない' do
+        expect(find_field('user[email]').text).to be_blank
+      end
       it 'passwordフォームが表示される' do
         expect(page).to have_field 'user[password]'
       end
+      it 'passwordフォームに値が入っていない' do
+        expect(find_field('user[password]').text).to be_blank
+      end
       it 'password_confirmationフォームが表示される' do
         expect(page).to have_field 'user[password_confirmation]'
+      end
+      it 'password_confirmationフォームに値が入っていない' do
+        expect(find_field('user[password_confirmation]').text).to be_blank
       end
       it 'Join!ボタンが表示される' do
         expect(page).to have_button 'Join!'
