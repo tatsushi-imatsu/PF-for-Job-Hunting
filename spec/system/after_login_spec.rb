@@ -19,7 +19,7 @@ RSpec.describe "AfterLogins", type: :system do
 
     describe 'ログイン後: ヘッダーのテスト' do
 
-     
+
         it 'word shareロゴが表示される' do
           expect(page).to have_content 'word share'
         end
@@ -48,8 +48,16 @@ RSpec.describe "AfterLogins", type: :system do
           expect(page).to have_field 'post_name'
           end
 
+          it '言葉フォームに値が入っていない' do
+          expect(find_field('post[name]').text).to be_blank
+          end
+
           it '意味・説明フォームが表示される' do
           expect(page).to have_field 'post_body'
+          end
+
+          it '意味・説明フォームに値が入っていない' do
+          expect(find_field('post[body]').text).to be_blank
           end
 
           it 'Shareボタンが表示されている' do
