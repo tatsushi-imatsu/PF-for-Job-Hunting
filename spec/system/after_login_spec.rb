@@ -69,6 +69,27 @@ RSpec.describe "AfterLogins", type: :system do
           it 'マイランキング：と表示される' do
           expect(page).to have_content "マイランキング"
           end
+          it '完全一致と表示される' do
+          expect(page).to have_content "完全一致"
+          end
+          it 'Wordと表示される' do
+          expect(page).to have_content "Word"
+          end
+          it '完全一致と表示される' do
+          expect(page).to have_content "完全一致"
+          end
+          it '前方一致と表示される' do
+          expect(page).to have_content "前方一致"
+          end
+          it '後方一致と表示される' do
+          expect(page).to have_content "後方一致"
+          end
+          it '部分一致と表示される' do
+          expect(page).to have_content "部分一致"
+          end
+          it '検索ボタンが表示されている' do
+          expect(page).to have_button '検索'
+          end
           it 'お問い合わせボタンが表示されている' do
           expect(page).to have_content 'お問い合わせ'
           end
