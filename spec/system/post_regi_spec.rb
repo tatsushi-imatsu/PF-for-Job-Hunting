@@ -17,6 +17,12 @@ describe '投稿処理のテスト', type: :system do
            fill_in 'post[body]', with: Faker::Lorem.characters(number: 20)
            expect { click_button 'Share!' }.to change(Post.all, :count).by(1)
         end
+        # it '編集するURLが正しい' do
+        # expect(page).to have_link "編集 Edit", href: edit_post_path(post)
+        # end
+        # it '削除するURLが正しい' do
+        # expect(page).to have_link "削除する Delete", href: post_path(post)
+        # end
         end
 end
 
@@ -68,19 +74,55 @@ end
       it "post.bodyが表示されている" do
         expect(page).to have_content post.body
       end
-      # it '編集するURLが正しい' do
-      #   click_link edit_post_path(post)
-      #   expect(current_path).to eq '/posts/' + Post.last.id.to_s + '/edit'
-      # end
-      # it '削除するURLが正しい' do
-      #   expect(page).to have_link "", href: post_path(post)
-      # end
       it '左上ロゴと自分の画像が表示される' do
       expect(all('img').size).to eq(2)
       end
-
       it '送信するボタンが表示されている' do
         expect(page).to have_button '送信する'
       end
+      end
+    end
+
+    describe '自分の投稿詳細画面のコメントテスト' do
+    let(:user) { create(:user) }
+    let(:post) { create(:post) }
+    before do
+      visit new_user_session_path
+      fill_in 'user[email]', with: user.email
+      fill_in 'user[password]', with: user.password
+      click_button 'ログイン'
+      fill_in 'post[name]', with: Faker::Lorem.characters(number: 5)
+      fill_in 'post[body]', with: Faker::Lorem.characters(number: 20)
+      visit post_path(post)
+    end
+
+    context '表示内容の確認' do
+     subject { current_path }
+        it 'コメントが正しく保存される' do
+           fill_in 'post_comment[comment]', with: Faker::Lorem.characters(number: 10)
+           click_button '送信する'
+        end
+      end
+    end
+
+    describe '自分の投稿詳細画面のコメントテスト' do
+    let(:user) { create(:user) }
+    let(:post) { create(:post) }
+    before do
+      visit new_user_session_path
+      fill_in 'user[email]', with: user.email
+      fill_in 'user[password]', with: user.password
+      click_button 'ログイン'
+      fill_in 'post[name]', with: Faker::Lorem.characters(number: 5)
+      fill_in 'post[body]', with: Faker::Lorem.characters(number: 20)
+      visit post_path(post)
+      fill_in 'post_comment[comment]', with: Faker::Lorem.characters(number: 10)
+      click_button '送信する'
+    end
+    context '表示内容の確認' do
+     subject { current_path }
+        it '左上ロゴと自分の画像、コメントにも画像が表示される' do
+        expect(all('img').size).to eq(3)
+        end
       end
     end
