@@ -52,6 +52,12 @@ describe 'Mypageのテスト', type: :system do
     it "マイページに会員状態 〜Current status〜が表示されている" do
     expect(page).to have_content '会員状態 〜Current status〜'
     end
+    it "マイページに利用中 〜valid〜が表示されている" do
+    expect(page).to have_content '利用中 〜valid〜'
+    end
+    it '退会 〜invalid〜は表示されない' do
+    expect(page).to have_no_content "退会 〜invalid〜"
+    end
     it 'プロフィール編集URLが正しい' do
     expect(page).to have_link "", href: edit_user_path(user)
     end

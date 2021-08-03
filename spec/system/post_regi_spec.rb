@@ -77,6 +77,15 @@ end
       it '左上ロゴと自分の画像が表示される' do
       expect(all('img').size).to eq(2)
       end
+      it '♥いいねは表示されない' do
+        expect(page).to have_no_content "♥いいね"
+      end
+      it '♡いいねは表示されない' do
+        expect(page).to have_no_content "♡いいね"
+      end
+      it 'いいね数は表示されない' do
+        expect(page).to have_no_field post.favorites.count
+      end
       it '送信するボタンが表示されている' do
         expect(page).to have_button '送信する'
       end
