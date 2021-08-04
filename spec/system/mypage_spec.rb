@@ -157,3 +157,44 @@ describe 'Mypage編集のテスト', type: :system do
     end
   end
 end
+
+  describe 'Mypage退会のテスト', type: :system do
+  let(:user) { create(:user) }
+  before do
+    visit new_user_registration_path
+    fill_in 'user[last_name]', with: Faker::Lorem.characters(number: 10)
+    fill_in 'user[first_name]', with: Faker::Lorem.characters(number: 10)
+    fill_in 'user[last_name_kana]', with: Faker::Lorem.characters(number: 10)
+    fill_in 'user[first_name_kana]', with: Faker::Lorem.characters(number: 10)
+    fill_in 'user[email]', with: Faker::Internet.email
+    fill_in 'user[password]', with: 'password'
+    fill_in 'user[password_confirmation]', with: 'password'
+    click_button 'Join!'
+    mypage_link = find_all('a')[1].native.inner_text
+    mypage_link.gsub!(/\n/, '')
+    click_link mypage_link
+    click_link '退会する Quit'
+  end
+  describe '退会' do
+  context '退会成功のテスト' do
+    subject { current_path }
+      it 'URLが正しい' do
+      expect(current_path).to eq '/users/' + User.last.id.to_s + '/withdraw'
+      end
+      it "退会確認が表示されている" do
+      expect(page).to have_content "退会確認"
+      end
+      it "本当に退会してもよろしいでしょうか？が表示されている" do
+      expect(page).to have_content "本当に退会してもよろしいでしょうか？"
+      end
+      it '退会するURLが正しい' do
+      click_link '退会する'
+      is_expected.to eq '/'
+      end
+      it '退会しない' do
+      click_link '退会しない'
+      expect(current_path).to eq '/users/' + User.last.id.to_s
+      end
+    end
+  end
+end
