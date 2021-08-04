@@ -75,7 +75,7 @@ end
         expect(page).to have_content post.body
       end
       it '左上ロゴと自分の画像が表示される' do
-      expect(all('img').size).to eq(2)
+        expect(all('img').size).to eq(2)
       end
       it '♥いいねは表示されない' do
         expect(page).to have_no_content "♥いいね"
